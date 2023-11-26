@@ -15,6 +15,7 @@ public class Dialogue : MonoBehaviour
     public GameObject sprite1; // Reference to the first sprite GameObject
     public GameObject sprite2; // 
 
+    public PortalManager portalManager;
 
     public AudioSource typingSound; // Reference to the AudioSource component
     //public AudioClip audioClip;
@@ -97,6 +98,14 @@ public class Dialogue : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+            if (portalManager != null)
+            {
+                portalManager.StartFadeIn(2f); // Start fade-in of the portal over 2 seconds
+            }
+            else
+            {
+                Debug.LogError("PortalManager not found or not assigned.");
+            }
         }
     }
 
