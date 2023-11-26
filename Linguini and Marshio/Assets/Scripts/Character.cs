@@ -35,8 +35,8 @@ public class Character : MonoBehaviour
         currentlevel++;
         currentExperience = 0;
         maxExperience += 100;
-        levelWindow.SetExperienceBarSize(currentExperience);
-        levelWindow.SetLevelNumber(currentlevel);
+        //levelWindow.SetExperienceBarSize(currentExperience);
+        //levelWindow.SetLevelNumber(currentlevel);
     }
 
     private void SetLevelWindow()
