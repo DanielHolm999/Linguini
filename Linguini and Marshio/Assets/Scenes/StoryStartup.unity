@@ -152,7 +152,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 87b67e401176f43d9a81e3cbdd326ecc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.101
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -782,15 +782,34 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<size=50>The legend of Lugini and his brother Marisio </size>\n\nThe two
-    brothers like this gurl called peach and they go to save her and say what it
-    is hooooe, was sssuuuuup\n\nIn a village in the lands between, two brothers grew
-    up in a small community. \n\nOne day the princess of the lands between were kidnapped,
-    and the two brothers saw some suspicious men near their village. \n\nThe brothers
-    ventured out and looked into these suspicious men and their activites, only to
-    find the princess' kidnappers. \n\nAfter some tumoultous fighting, the princess
-    were saved and before they knew it, the two brothers were kinghted and had become
-    the princess' bodyguards. "
+  m_text: '<size=50>The legend of Lugini and his brother Marisio </size>
+
+
+    In
+    a realm of courage and valor, Lugini and Marshio, brothers and farmers from Rito
+    Village, became unlikely heroes. Their life, filled with simple joys and shared
+    burdens, was upended by the mysterious disappearance of the realm''s beloved
+    princess.
+
+
+    Sparked by resolve and a chance discovery, they learned of a
+    secret location near their village where the princess was believed to be held.
+    Braving the unknown, they embarked on a night journey, guided by the stars and
+    their determination.
+
+
+    Finding a secluded stronghold of the enemy, they infiltrated
+    it with courage and cunning. After navigating treacherous corridors and outsmarting
+    guards, they heroically rescued the imprisoned princess.
+
+
+    At dawn, their
+    triumphant return to the village with the princess heralded widespread acclaim.
+    Celebrated for their bravery, Lugini and Marshio were knighted in a grand ceremony,
+    their story becoming legend.
+
+
+    But peace was short-lived in The Lands Between...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1104,8 +1123,8 @@ MonoBehaviour:
   - {fileID: 1208503406}
   - {fileID: 1864773589}
   - {fileID: 1498115215}
-  fadeSpeed: 0.3
-  displayTime: 6
+  fadeSpeed: 0.5
+  displayTime: 17
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
