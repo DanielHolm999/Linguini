@@ -9,6 +9,12 @@ public class Playercontroller : MonoBehaviour
     private Vector2 input;
     public LayerMask solidObjectsLayer;
     public LayerMask InteractableLayer;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,6 +28,9 @@ public class Playercontroller : MonoBehaviour
 
             if(input != Vector2.zero)
             {
+                animator.SetFloat("MoveX", input.x);
+                animator.SetFloat("MoveY", input.y);
+
                 var targetPos = transform.position;
                 targetPos.x += input.x;
                 targetPos.y += input.y;
@@ -31,8 +40,8 @@ public class Playercontroller : MonoBehaviour
                     Debug.Log("isWalkAble");
                     StartCoroutine(Move(targetPos));
                 }
-                
             }
+            animator.SetBool("isMoving", isMoving);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -44,19 +53,10 @@ public class Playercontroller : MonoBehaviour
     public void Interact()
     {
         
-        var faceingDir = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        var faceingDir = new Vector3(animator.GetFloat("MoveX"), animator.GetFloat("MoveY"));
         var interactPos = transform.position + faceingDir;
         Debug.DrawLine(transform.position, faceingDir, Color.red, 10f);
-        Debug.Log("inputs " + (Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("Vertical") + faceingDir.ToString()));
-
-        //LineRenderer l = gameObject.AddComponent<LineRenderer>();
-        //List<Vector3> pos = new List<Vector3>();
-        //pos.Add(new Vector3(0, 0));
-        //pos.Add(new Vector3(10, 10));
-        //l.startWidth = 1f;
-        //l.endWidth = 1f;
-        //l.SetPositions(pos.ToArray());
-        //l.useWorldSpace = true;
+        Debug.Log("inputs " + faceingDir.ToString());
 
         var collider = Physics2D.OverlapCircle(interactPos, 0.3f, InteractableLayer);
         if(collider != null)

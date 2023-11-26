@@ -39,8 +39,8 @@ public class Character : MonoBehaviour
         levelWindow.SetLevelNumber(currentlevel);
     }
 
-    private void SetLevelWindow(LevelWindow levelWindow)
+    private void SetLevelWindow()
     {
-        this.levelWindow = levelWindow;
+        levelWindow = GetComponent<LevelWindow>();
     }
 }
