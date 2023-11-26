@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: CryoShell_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 86
+        width: 427
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6869050927757f34b9c97ce2143268bb
+      internalID: -332088342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryoShell_1
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 86
+        width: 429
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4061f5ce20c57b4292ec096f13df9c1
+      internalID: -1595282563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryoShell_2
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 86
+        width: 429
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ac4abc56c748145bf7086dcd321e53
+      internalID: -1201059227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryoShell_3
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 192
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390aa3df11049f947a5255aad779e631
+      internalID: 244724872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryoShell_4
+      rect:
+        serializedVersion: 2
+        x: 2054
+        y: 46
+        width: 222
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c44864fc3262b44881bd41230097dc
+      internalID: 1101554073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryoShell_5
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 221
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a26e694fc469a6458e878fd26bb4590
+      internalID: 1420101961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryoShell_6
+      rect:
+        serializedVersion: 2
+        x: 2566
+        y: 46
+        width: 486
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd5742778db31ec4cb7a1ce69a8b00c1
+      internalID: 1291681204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +266,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CryoShell_0: -332088342
+      CryoShell_1: -1595282563
+      CryoShell_2: -1201059227
+      CryoShell_3: 244724872
+      CryoShell_4: 1101554073
+      CryoShell_5: 1420101961
+      CryoShell_6: 1291681204
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

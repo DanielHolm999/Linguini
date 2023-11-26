@@ -20,6 +20,7 @@ public class Character : MonoBehaviour
 
     private void HandleExperienceChange(int newExperience)
     {
+        Debug.Log("experience handler called");
         currentExperience += newExperience;
         if (currentExperience >= maxExperience)
         {
