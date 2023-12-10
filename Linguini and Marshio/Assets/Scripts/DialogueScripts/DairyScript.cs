@@ -6,6 +6,9 @@ public class SpriteManager : MonoBehaviour
     public PortalManager portalManager; // Assign in the Inspector
     private SpriteRenderer spriteRenderer;
     public Transform targetPosition;
+    public GameObject spriteToHide;     // Lugini front facing
+    public GameObject spriteToShow; // Lugini back facing
+    public KidnappingScript dialogueScript; //dialogue for during portal kidnapping
 
     private void Start()
     {
@@ -26,7 +29,7 @@ public class SpriteManager : MonoBehaviour
         float fadeOutTime = 2f; // Duration of fade out and movement
         float currentFadeTime = 0f;
         Vector3 startPosition = transform.position; // Starting position of the sprite
-
+        dialogueScript.StartDialogue();
         while (currentFadeTime < fadeOutTime)
         {
             // Rotation
@@ -41,12 +44,18 @@ public class SpriteManager : MonoBehaviour
             transform.position = Vector3.Lerp(startPosition, targetPosition.position, currentFadeTime / fadeOutTime);
 
             currentFadeTime += Time.deltaTime;
+
             yield return null;
         }
 
         // Ensure it's fully transparent and at the target position at the end
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0f);
         transform.position = targetPosition.position;
+
+        if (spriteToHide != null)
+            spriteToHide.SetActive(false);
+        if (spriteToShow != null)
+            spriteToShow.SetActive(true);
     }
 
 }
