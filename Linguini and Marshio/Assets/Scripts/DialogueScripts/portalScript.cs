@@ -1,9 +1,17 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class PortalManager : MonoBehaviour
 {
     public SpriteRenderer portalSpriteRenderer; // Assign this in the Inspector
+    public event Action OnFullyOpaque;
+
+    private void TriggerFullyOpaqueEvent()
+    {
+        if (OnFullyOpaque != null)
+            OnFullyOpaque();
+    }
 
     // Call this method to start the fade-in process
     public void StartFadeIn(float duration)
@@ -37,5 +45,6 @@ public class PortalManager : MonoBehaviour
 
         // Ensure it's fully opaque at the end
         portalSpriteRenderer.color = new Color(portalSpriteRenderer.color.r, portalSpriteRenderer.color.g, portalSpriteRenderer.color.b, 1f);
+        TriggerFullyOpaqueEvent();
     }
 }
