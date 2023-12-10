@@ -55,7 +55,33 @@ public class SpriteManager : MonoBehaviour
         if (spriteToHide != null)
             spriteToHide.SetActive(false);
         if (spriteToShow != null)
+        {
             spriteToShow.SetActive(true);
+        }
+    }
+
+    public void MoveSpriteToShow()
+    {
+        if (spriteToShow != null)
+        {
+            StartCoroutine(MoveSpriteCoroutine());
+        }
+    }
+
+    private IEnumerator MoveSpriteCoroutine()
+    {
+        float moveDuration = 2f; // Set the desired movement duration
+        Vector3 startPosition = spriteToShow.transform.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < moveDuration)
+        {
+            spriteToShow.transform.position = Vector3.Lerp(startPosition, targetPosition.position, elapsedTime / moveDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        spriteToShow.transform.position = targetPosition.position;
     }
 
 }

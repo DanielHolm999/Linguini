@@ -727,7 +727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &802443931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,11 +742,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1424833486}
   nameText: {fileID: 1846502718}
+  spriteManager: {fileID: 1410381163}
   lines:
   - name: 'Diary '
-    sentence: LUGINIIIII
+    sentence: LLUGINIIIII
   - name: Lugini
     sentence: DAAAAIRYY
+  - name: Lugini
+    sentence: I've gotta go after her!
   textSpeed: 0.1
 --- !u!114 &802443932
 MonoBehaviour:
