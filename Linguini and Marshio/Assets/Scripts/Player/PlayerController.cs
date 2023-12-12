@@ -22,8 +22,8 @@ public class Playercontroller : MonoBehaviour
             if(input != Vector2.zero)
             {
                 var targetPos = transform.position;
-                targetPos.x += input.x;
-                targetPos.y += input.y;
+                targetPos.x += input.x * 0.2f;
+                targetPos.y += input.y * 0.2f;
 
                 if (isWalkAble(targetPos))
                 {
