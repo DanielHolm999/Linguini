@@ -24,7 +24,28 @@ public class BattleHUD : MonoBehaviour
 
     public void SetHP(int hp)
     {
-        hpSlider.value = hp;
-        fill.color = gradient.Evaluate(hpSlider.normalizedValue);
+        //hpSlider.value = hp;
+        StartCoroutine(DecreaseHP(hp));
+    }
+
+    IEnumerator DecreaseHP(int newHp)
+    {
+        float decreaseDuration = 1f;
+        float elapsedTime = 0;
+
+        int startHp = (int)hpSlider.value;
+
+        while (elapsedTime < decreaseDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newHPValue = Mathf.Lerp(startHp, newHp, elapsedTime / decreaseDuration);
+            hpSlider.value = newHPValue;
+
+            fill.color = gradient.Evaluate(hpSlider.normalizedValue);
+
+            yield return null;
+        }
+
+        hpSlider.value = newHp;
     }
 }
