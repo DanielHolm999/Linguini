@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Threading.Tasks;
 
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
+public enum BattleState { START, PLAYERTURN, ATTACKINGPHASE, ENEMYTURN, WON, LOST}
 
 public class BattleSystem : MonoBehaviour
 {
@@ -31,6 +32,13 @@ public class BattleSystem : MonoBehaviour
     public AudioClip playerAttackingSFX;
     public AudioClip enemyAttackingSFX;
 
+    public GameObject projectilePrefab;
+
+    //
+    public GameObject animationSprite1;
+    public GameObject animationSprite2;
+    public GameObject luginiProjectilePrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +61,13 @@ public class BattleSystem : MonoBehaviour
         enemyHUD.SetHud(enemyUnit);
 
         dialogueBoxText.text = "What is that? A feral " + enemyUnit.unitName + " approaches!";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
+
+        dialogueBoxText.text = "It looks dangerous, you better be careful!";
+        yield return new WaitForSeconds(3f);
+
+        dialogueBoxText.text = "Try choosing attack and get its HP down!";
+        yield return new WaitForSeconds(3f);
 
         state = BattleState.PLAYERTURN;
         PlayerTurn();
@@ -117,6 +131,8 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+        state = BattleState.ATTACKINGPHASE;
+
         Vector3 originalPosition = playerUnit.transform.position;
         Vector3 attackPosition = originalPosition + new Vector3(0.5f, 0, 0); // Adjust the distance
 
@@ -126,6 +142,8 @@ public class BattleSystem : MonoBehaviour
         yield return StartCoroutine(MoveToAttackPosition(attackPosition));
         yield return StartCoroutine(PerformAttackAnimation());
         yield return StartCoroutine(MoveToOriginalPosition(originalPosition));
+
+        state = BattleState.ENEMYTURN;
 
         UpdateHUDAndCheckBattleState(isDead);
     }
@@ -162,6 +180,55 @@ public class BattleSystem : MonoBehaviour
             StartCoroutine(EnemyTurn());
         }
     }
+
+    public void PerformSpecialAttack()
+    {
+        StartCoroutine(SpecialAttackRoutine());
+    }
+
+    private IEnumerator SpecialAttackRoutine()
+    {
+        // Hide the normal sprite and show the first animation sprite
+        playerUnit.gameObject.SetActive(false);
+        animationSprite1.SetActive(true);
+
+        yield return new WaitForSeconds(1f); // Wait for 1 second
+
+        // Switch to the next animation sprite
+        animationSprite1.SetActive(false);
+        animationSprite2.SetActive(true);
+
+        yield return new WaitForSeconds(1f); // Wait for another second
+
+        // Instantiate and fire the projectile
+        GameObject projectileObject = Instantiate(luginiProjectilePrefab, playerUnit.transform.position, Quaternion.identity);
+        Projectile projectileScript = projectileObject.GetComponent<Projectile>();
+
+        // Set the shooter as Player
+        projectileScript.shooter = Projectile.Shooter.Player;
+
+        // Randomize projectile speed
+        float projectileSpeed = Random.Range(8f, 13f);
+        Debug.Log("Projectile speed is " + projectileSpeed);
+        projectileScript.SetSpeed(projectileSpeed);
+
+        // Set the projectile's direction towards the enemy
+        Vector3 directionToEnemy = enemyUnit.transform.position - playerUnit.transform.position;
+        Vector2 horizontalDirection = new Vector2(directionToEnemy.x, 0).normalized;
+        projectileScript.direction = horizontalDirection;
+        Debug.Log("Projectile direction set towards: " + enemyUnit.transform.position);
+        TaskCompletionSource<bool> attackCompletion = new TaskCompletionSource<bool>();
+        projectileScript.OnHit += () => { Debug.Log("Projectile hit the player"); attackCompletion.TrySetResult(true); };
+        projectileScript.OnLifetimeEnd += () => { Debug.Log("Projectile lifetime ended"); attackCompletion.TrySetResult(false); };
+
+        // Wait for either the projectile to hit or its lifetime to end
+        yield return new WaitUntil(() => attackCompletion.Task.IsCompleted);
+        Debug.Log("Attack completion detected");
+        // Return to the normal sprite
+        yield return new WaitForSeconds(1f); // Wait a moment before switching back
+        animationSprite2.SetActive(false);
+        playerUnit.gameObject.SetActive(true);
+    }
 #endregion
 
     #region EnemyStuff
@@ -169,7 +236,7 @@ public class BattleSystem : MonoBehaviour
     {
         Vector3 originalPos = enemyUnit.transform.position;
         Vector3 targetPos = originalPos + new Vector3(0, -180, 0);
-        yield return StartCoroutine(EnemyDeathAnimation(enemyUnit.transform, targetPos, 2f));
+        yield return StartCoroutine(EnemyDeathAnimation(enemyUnit.transform, targetPos, 10f));
         EndBattle();
     }
 
@@ -182,10 +249,84 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    IEnumerator EnemyTurn()
+    IEnumerator EnemyProjectileAttack()
     {
-        //update text
-        dialogueBoxText.text = enemyUnit.unitName + " is looking menancingly ";
+        //Tutorial specific:
+        var playerHp = playerUnit.currentHp;
+        // Update text
+        dialogueBoxText.text = enemyUnit.unitName + " prepares a ranged attack!";
+        Debug.Log("Preparing ranged attack");
+        yield return new WaitForSeconds(2.5f); // Time before shooting
+
+        // Instantiate and set up projectile
+        GameObject projectileObject = Instantiate(projectilePrefab, enemyUnit.transform.position, Quaternion.identity);
+        Debug.Log("Projectile instantiated at position: " + enemyUnit.transform.position);
+
+        Projectile projectileScript = projectileObject.GetComponent<Projectile>();
+        projectileScript.shooter = Projectile.Shooter.Enemy;
+
+
+        if (projectileScript != null)
+        {
+            float projectileSpeed = Random.Range(8f, 13f);
+            Debug.Log("Projectilespeed is " + projectileSpeed);
+            projectileScript.SetSpeed(projectileSpeed);
+            Vector3 directionToPlayer = playerUnit.transform.position - enemyUnit.transform.position;
+            Vector2 horizontalDirection = new Vector2(directionToPlayer.x, 0).normalized;
+            projectileScript.direction = horizontalDirection;
+            Debug.Log("Projectile direction set towards: " + playerUnit.transform.position);
+
+            // Set up a completion source
+            TaskCompletionSource<bool> attackCompletion = new TaskCompletionSource<bool>();
+            projectileScript.OnHit += () => { Debug.Log("Projectile hit the player"); attackCompletion.TrySetResult(true); };
+            projectileScript.OnLifetimeEnd += () => { Debug.Log("Projectile lifetime ended"); attackCompletion.TrySetResult(false); };
+
+            // Wait for either the projectile to hit or its lifetime to end
+            yield return new WaitUntil(() => attackCompletion.Task.IsCompleted);
+            Debug.Log("Attack completion detected");
+        }
+        else
+        {
+            Debug.LogError("Projectile script not found on the instantiated object");
+        }
+
+
+
+        // Update HUD after attack
+        playerHUD.SetHP(playerUnit.currentHp);
+        Debug.Log("HUD updated after attack");
+        yield return new WaitForSeconds(2f); // Post-attack pause
+
+        //tutorial specific:
+        if (playerUnit.currentHp < playerHp)
+        {
+            dialogueBoxText.text = "You took a big hit!";
+            yield return new WaitForSeconds(2f);
+            dialogueBoxText.text = "No worries, in the tutorial your health gets reset!";
+            yield return new WaitForSeconds(3f);
+            dialogueBoxText.text = "Keep practicing your jumps!";
+            yield return new WaitForSeconds(4f);
+            playerUnit.currentHp = playerUnit.maxHp;
+            playerHUD.SetHP(playerUnit.maxHp);
+        }
+        else
+        {
+            dialogueBoxText.text = "Good job! You successfully dodged the attack!";
+            yield return new WaitForSeconds(4f);
+            dialogueBoxText.text = "All monsters shoot at different speeds!";
+            yield return new WaitForSeconds(3f);
+            dialogueBoxText.text = "Some monsters even shoot at different speeds each time!";
+            yield return new WaitForSeconds(3f);
+            dialogueBoxText.text = "So always be ready when a monster is preparing an attack!";
+            yield return new WaitForSeconds(3f);
+            dialogueBoxText.text = "Now keep attacking it till it's hp is 0!";
+            yield return new WaitForSeconds(3f);
+        }
+    }
+
+    IEnumerator EnemyNormalAttack()
+    {
+        dialogueBoxText.text = enemyUnit.unitName + " is looking menacingly ";
         yield return new WaitForSeconds(3f);
 
         Vector3 originalPosition = enemyUnit.transform.position;
@@ -201,20 +342,22 @@ public class BattleSystem : MonoBehaviour
         playerHUD.SetHP(playerUnit.currentHp);
 
         yield return new WaitForSeconds(2f);
-
-        if (isDead)
-        {
-            state = BattleState.WON;
-            EndBattle();
-        }
-        else
-        {
-            state = BattleState.PLAYERTURN;
-            PlayerTurn();
-        }
-
     }
 
+    IEnumerator EnemyTurn()
+    {
+        dialogueBoxText.text = "Ratty took some damage! Good job";
+        yield return new WaitForSeconds(3f);
+
+        dialogueBoxText.text = "Ratty is about to attack, pay close attention!";
+        yield return new WaitForSeconds(3f);
+        dialogueBoxText.text = "When it's attack is close to you, hit SPACEBAR to jump over it!";
+        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(EnemyProjectileAttack());
+
+        CheckPlayerState();
+    }
+ 
     IEnumerator PerformEnemyAttackAnimation()
     {
         enemyAttackSprite.enabled = true; // Show the enemy attack sprite
@@ -225,6 +368,20 @@ public class BattleSystem : MonoBehaviour
         enemyAttackSprite.enabled = false; // Hide the enemy attack sprite
     }
 
+    void CheckPlayerState()
+    {
+        bool isDead = playerUnit.currentHp <= 0;
+        if (isDead)
+        {
+            state = BattleState.LOST;
+            EndBattle();
+        }
+        else
+        {
+            state = BattleState.PLAYERTURN;
+            PlayerTurn();
+        }
+    }
 
     #endregion
 
@@ -237,6 +394,18 @@ public class BattleSystem : MonoBehaviour
             return;
 
         StartCoroutine(PlayerAttack());
+    }
+
+    public void OnSkillButton()
+    {
+        Debug.Log("On skill clicked in state: " + state);
+        
+            if (state != BattleState.PLAYERTURN)
+            {
+                return;
+            }
+        PerformSpecialAttack();
+        
     }
     #endregion
 }
