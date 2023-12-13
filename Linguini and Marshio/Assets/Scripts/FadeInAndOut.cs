@@ -26,12 +26,12 @@ public class ImageFader : MonoBehaviour
 
     private IEnumerator FadeIn(CanvasGroup group)
     {
-        while (group.alpha < 1)
+        while (group.alpha < 0.5f)
         {
             group.alpha += fadeSpeed * Time.deltaTime;
             yield return null;
         }
-        group.alpha = 1; // Ensure fully visible
+        group.alpha = 0.5f; // Ensure fully visible
     }
 
     private IEnumerator FadeOut(CanvasGroup group)

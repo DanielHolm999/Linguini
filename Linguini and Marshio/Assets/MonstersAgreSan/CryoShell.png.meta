@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -106,6 +106,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -113,10 +126,10 @@ TextureImporter:
       name: CryoShell_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 86
-        width: 427
-        height: 352
+        x: 0
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6869050927757f34b9c97ce2143268bb
-      internalID: -332088342
+      spriteID: 580f530a2272946b0820f1c85b410382
+      internalID: -479894930
       vertices: []
       indices: 
       edges: []
@@ -134,10 +147,10 @@ TextureImporter:
       name: CryoShell_1
       rect:
         serializedVersion: 2
-        x: 575
-        y: 86
-        width: 429
-        height: 352
+        x: 512
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4061f5ce20c57b4292ec096f13df9c1
-      internalID: -1595282563
+      spriteID: 377914a75966d4427a3ce6cf81b8b6dd
+      internalID: -2096364863
       vertices: []
       indices: 
       edges: []
@@ -155,10 +168,10 @@ TextureImporter:
       name: CryoShell_2
       rect:
         serializedVersion: 2
-        x: 1087
-        y: 86
-        width: 429
-        height: 352
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16ac4abc56c748145bf7086dcd321e53
-      internalID: -1201059227
+      spriteID: 25ff0837c1951425e9f725be033ee5b0
+      internalID: 848521616
       vertices: []
       indices: 
       edges: []
@@ -176,10 +189,10 @@ TextureImporter:
       name: CryoShell_3
       rect:
         serializedVersion: 2
-        x: 1744
-        y: 192
-        width: 108
-        height: 108
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 390aa3df11049f947a5255aad779e631
-      internalID: 244724872
+      spriteID: b2882b3ca71d54cd598cd2b3afcc387b
+      internalID: -480301042
       vertices: []
       indices: 
       edges: []
@@ -197,10 +210,10 @@ TextureImporter:
       name: CryoShell_4
       rect:
         serializedVersion: 2
-        x: 2054
-        y: 46
-        width: 222
-        height: 279
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09c44864fc3262b44881bd41230097dc
-      internalID: 1101554073
+      spriteID: b04435b07ef254f7e8b3a5e355ed57ea
+      internalID: 1946691803
       vertices: []
       indices: 
       edges: []
@@ -218,10 +231,10 @@ TextureImporter:
       name: CryoShell_5
       rect:
         serializedVersion: 2
-        x: 2294
-        y: 221
-        width: 5
-        height: 5
+        x: 2560
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,29 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a26e694fc469a6458e878fd26bb4590
-      internalID: 1420101961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CryoShell_6
-      rect:
-        serializedVersion: 2
-        x: 2566
-        y: 46
-        width: 486
-        height: 392
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd5742778db31ec4cb7a1ce69a8b00c1
-      internalID: 1291681204
+      spriteID: 8f4396085157d48babd52f115e1e2eb7
+      internalID: 2110381714
       vertices: []
       indices: 
       edges: []
@@ -267,13 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CryoShell_0: -332088342
-      CryoShell_1: -1595282563
-      CryoShell_2: -1201059227
-      CryoShell_3: 244724872
-      CryoShell_4: 1101554073
-      CryoShell_5: 1420101961
-      CryoShell_6: 1291681204
+      CryoShell_0: -479894930
+      CryoShell_1: -2096364863
+      CryoShell_2: 848521616
+      CryoShell_3: -480301042
+      CryoShell_4: 1946691803
+      CryoShell_5: 2110381714
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

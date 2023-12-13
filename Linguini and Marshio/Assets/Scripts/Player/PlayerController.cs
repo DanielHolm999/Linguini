@@ -32,8 +32,8 @@ public class Playercontroller : MonoBehaviour
                 animator.SetFloat("MoveY", input.y);
 
                 var targetPos = transform.position;
-                targetPos.x += input.x;
-                targetPos.y += input.y;
+                targetPos.x += input.x * 0.2f;
+                targetPos.y += input.y * 0.2f;
 
                 if (isWalkable(targetPos))
                 {
