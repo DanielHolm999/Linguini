@@ -11872,7 +11872,7 @@ Tilemap:
       - {fileID: 687226270, guid: 0fd3c75c043d14c699e4550e4747a21a, type: 3}
       - {fileID: 338702911, guid: 0fd3c75c043d14c699e4550e4747a21a, type: 3}
       - {fileID: 1436315695, guid: 0fd3c75c043d14c699e4550e4747a21a, type: 3}
-      m_AnimationSpeed: 1.2244041
+      m_AnimationSpeed: 1.8125484
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -14, y: 23, z: 0}
@@ -11891,7 +11891,7 @@ Tilemap:
       - {fileID: 1241642037, guid: e44d30d43c5fb4446ae3630c1469f44c, type: 3}
       - {fileID: 129226111, guid: e44d30d43c5fb4446ae3630c1469f44c, type: 3}
       - {fileID: -648913492, guid: e44d30d43c5fb4446ae3630c1469f44c, type: 3}
-      m_AnimationSpeed: 1.7247529
+      m_AnimationSpeed: 1.0575607
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -5, y: 23, z: 0}
@@ -11910,7 +11910,7 @@ Tilemap:
       - {fileID: 680413238, guid: f3c45475746144fee98bcef99b32ce92, type: 3}
       - {fileID: 1710640499, guid: f3c45475746144fee98bcef99b32ce92, type: 3}
       - {fileID: 1793594667, guid: f3c45475746144fee98bcef99b32ce92, type: 3}
-      m_AnimationSpeed: 3.2364442
+      m_AnimationSpeed: 2.748494
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 23, z: 0}
@@ -11929,7 +11929,7 @@ Tilemap:
       - {fileID: 1610677370, guid: 2a5de4a1b79ea4f86bbf218cfcd6cca2, type: 3}
       - {fileID: 1607215862, guid: 2a5de4a1b79ea4f86bbf218cfcd6cca2, type: 3}
       - {fileID: -474196262, guid: 2a5de4a1b79ea4f86bbf218cfcd6cca2, type: 3}
-      m_AnimationSpeed: 5.601842
+      m_AnimationSpeed: 5.810096
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 12, y: 23, z: 0}
@@ -11948,7 +11948,7 @@ Tilemap:
       - {fileID: -21146496, guid: 4e0527ff472b34c08baaae1ca52a1343, type: 3}
       - {fileID: -169605721, guid: 4e0527ff472b34c08baaae1ca52a1343, type: 3}
       - {fileID: 58623736, guid: 4e0527ff472b34c08baaae1ca52a1343, type: 3}
-      m_AnimationSpeed: 1.7021401
+      m_AnimationSpeed: 1.8506174
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -14455,6 +14455,7 @@ GameObject:
   - component: {fileID: 1441502815}
   - component: {fileID: 1441502814}
   - component: {fileID: 1441502813}
+  - component: {fileID: 1441502816}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -14478,6 +14479,9 @@ MonoBehaviour:
   solidObjectsLayer:
     serializedVersion: 2
     m_Bits: 64
+  InteractableLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &1441502814
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14545,6 +14549,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1441502816
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441502812}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad22af7756c1c7344b228cd3d68ef38a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1637379934
 GameObject:
   m_ObjectHideFlags: 0
