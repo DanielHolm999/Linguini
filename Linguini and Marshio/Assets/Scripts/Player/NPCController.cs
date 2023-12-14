@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
+    [SerializeField] NPCDialogueLines dialog;
+
     // Update is called once per frame
     void Update()
     {
@@ -14,6 +16,7 @@ public class NPCController : MonoBehaviour
     {
         Debug.Log("interacting test");
         Speak();
+        StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
     }
 
     private void Speak()
