@@ -5,8 +5,9 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField]
-    int currentHealth, maxhealth, currentExperience, maxExperience, currentlevel;
-    private LevelWindow levelWindow;
+    int currentHealth, maxhealth = 100, currentExperience, maxExperience = 100, currentlevel;
+    public XpBar xpBar;
+
 
     private void OnEnable()
     {
@@ -35,12 +36,8 @@ public class Character : MonoBehaviour
         currentlevel++;
         currentExperience = 0;
         maxExperience += 100;
-        //levelWindow.SetExperienceBarSize(currentExperience);
-        //levelWindow.SetLevelNumber(currentlevel);
+        xpBar.SetMaxXp(maxExperience);
+        xpBar.SetXp(currentExperience);
     }
 
-    private void SetLevelWindow()
-    {
-        levelWindow = GetComponent<LevelWindow>();
-    }
 }

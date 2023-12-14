@@ -11,6 +11,10 @@ public class Playercontroller : MonoBehaviour
     public LayerMask InteractableLayer;
     private Animator animator;
 
+    //health
+    //public int maxHealth = 100;
+    //public int currentHealth;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -37,7 +41,7 @@ public class Playercontroller : MonoBehaviour
 
                 if (isWalkable(targetPos))
                 {
-                    Debug.Log("isWalkAble");
+                    //Debug.Log("isWalkAble");
                     StartCoroutine(Move(targetPos));
                 }
             }
@@ -61,7 +65,7 @@ public class Playercontroller : MonoBehaviour
         var collider = Physics2D.OverlapCircle(interactPos, 0.3f, InteractableLayer);
         if(collider != null)
         {
-            collider.GetComponent<EnemyController>().Interact();
+            collider.GetComponent<NPCController>().Interact();
         }
     }
 
