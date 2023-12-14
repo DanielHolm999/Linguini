@@ -1174,8 +1174,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 896020497}
-  - component: {fileID: 896020496}
   - component: {fileID: 896020498}
+  - component: {fileID: 896020499}
   m_Layer: 0
   m_Name: BattleSystem
   m_TagString: Untagged
@@ -1183,34 +1183,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &896020496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896020495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe3c7e923db9148e794f670b809ca122, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  playerPrefab: {fileID: 2574335524702187650, guid: 1dc1072819fd2425c9152f9d11cf7a17, type: 3}
-  enemyPrefab: {fileID: 2734651992688534218, guid: d60e3430713bd49139a976cc9fdeab9e, type: 3}
-  playerBattleStation: {fileID: 312278869}
-  enemyBattleStation: {fileID: 353479221}
-  playerHUD: {fileID: 1192098285}
-  enemyHUD: {fileID: 873009245}
-  dialogueBoxText: {fileID: 1592162870}
-  attackSprite: {fileID: 1409792216}
-  enemyAttackSprite: {fileID: 1409795280}
-  playerAttackingSFX: {fileID: 8300000, guid: 09d0f2ec7333b4934bd256d42b91c20d, type: 3}
-  enemyAttackingSFX: {fileID: 8300000, guid: 09d0f2ec7333b4934bd256d42b91c20d, type: 3}
-  projectilePrefab: {fileID: 5370642598603705284, guid: 113ffbda46ebf479ba07df167d93841c, type: 3}
-  animationSprite1: {fileID: 372173513}
-  animationSprite2: {fileID: 1864080239}
-  luginiProjectilePrefab: {fileID: 1544623104996092732, guid: a2a1c35906eea4e379e8ad1cc1bbfd30, type: 3}
 --- !u!4 &896020497
 Transform:
   m_ObjectHideFlags: 0
@@ -1322,6 +1294,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &896020499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896020495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1ed1d47a51b43989fb37de73a63c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  playerPrefab: {fileID: 2574335524702187650, guid: 1dc1072819fd2425c9152f9d11cf7a17, type: 3}
+  enemyPrefab: {fileID: 2734651992688534218, guid: d60e3430713bd49139a976cc9fdeab9e, type: 3}
+  playerBattleStation: {fileID: 312278869}
+  enemyBattleStation: {fileID: 353479221}
+  playerHUD: {fileID: 1192098285}
+  enemyHUD: {fileID: 873009245}
+  dialogueBoxText: {fileID: 1592162870}
+  attackSprite: {fileID: 1409792216}
+  enemyAttackSprite: {fileID: 1409795280}
+  playerAttackingSFX: {fileID: 0}
+  enemyAttackingSFX: {fileID: 0}
+  projectilePrefab: {fileID: 5370642598603705284, guid: 113ffbda46ebf479ba07df167d93841c, type: 3}
+  animationSprite1: {fileID: 372173513}
+  animationSprite2: {fileID: 1864080239}
+  luginiProjectilePrefab: {fileID: 1544623104996092732, guid: a2a1c35906eea4e379e8ad1cc1bbfd30, type: 3}
 --- !u!1 &910271211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,8 +1404,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 896020496}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+      - m_Target: {fileID: 896020499}
+        m_TargetAssemblyTypeName: TutorialBattleSystem, Assembly-CSharp
         m_MethodName: OnAttackButton
         m_Mode: 1
         m_Arguments:
@@ -1690,8 +1690,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 896020496}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+      - m_Target: {fileID: 896020499}
+        m_TargetAssemblyTypeName: TutorialBattleSystem, Assembly-CSharp
         m_MethodName: OnSkillButton
         m_Mode: 1
         m_Arguments:

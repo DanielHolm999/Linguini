@@ -6,11 +6,11 @@ public class PlayerPhysics : MonoBehaviour
 {
     public float jumpForce = 5f;  // Adjust the force for jumping
     private Rigidbody2D rb;
-    private BattleSystem battlesystem;
+    private TutorialBattleSystem battlesystem;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        battlesystem = FindObjectOfType<BattleSystem>();
+        battlesystem = FindObjectOfType<TutorialBattleSystem>();
     }
 
     private void Update()

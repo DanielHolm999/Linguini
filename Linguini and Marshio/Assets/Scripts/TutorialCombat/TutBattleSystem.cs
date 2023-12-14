@@ -4,9 +4,9 @@ using UnityEngine;
 using TMPro;
 using System.Threading.Tasks;
 
-public enum BattleState { START, PLAYERTURN, ATTACKINGPHASE, ENEMYTURN, WON, LOST}
+public enum BattleState { START, PLAYERTURN, ATTACKINGPHASE, ENEMYTURN, WON, LOST }
 
-public class BattleSystem : MonoBehaviour
+public class TutorialBattleSystem : MonoBehaviour
 {
     public BattleState state;
     public GameObject playerPrefab;
@@ -24,7 +24,7 @@ public class BattleSystem : MonoBehaviour
 
     public TextMeshProUGUI dialogueBoxText;
 
-    
+
     public SpriteRenderer attackSprite; //Lugini in attack
     [SerializeField] private SpriteRenderer enemyAttackSprite;
 
@@ -229,7 +229,7 @@ public class BattleSystem : MonoBehaviour
         animationSprite2.SetActive(false);
         playerUnit.gameObject.SetActive(true);
     }
-#endregion
+    #endregion
 
     #region EnemyStuff
     IEnumerator HandleEnemyDeath()
@@ -357,7 +357,7 @@ public class BattleSystem : MonoBehaviour
 
         CheckPlayerState();
     }
- 
+
     IEnumerator PerformEnemyAttackAnimation()
     {
         enemyAttackSprite.enabled = true; // Show the enemy attack sprite
@@ -399,13 +399,13 @@ public class BattleSystem : MonoBehaviour
     public void OnSkillButton()
     {
         Debug.Log("On skill clicked in state: " + state);
-        
-            if (state != BattleState.PLAYERTURN)
-            {
-                return;
-            }
+
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
         PerformSpecialAttack();
-        
+
     }
     #endregion
 }
