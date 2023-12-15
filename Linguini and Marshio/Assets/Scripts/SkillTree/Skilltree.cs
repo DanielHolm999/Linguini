@@ -15,8 +15,6 @@ public class SkillTree : MonoBehaviour
 
         skillTree = this;
         DontDestroyOnLoad(gameObject);
-        DontDestroyOnLoad(ConnectorHolder);
-        DontDestroyOnLoad(SkillHolder);
     }
 
     public int[] SkillLevels;
