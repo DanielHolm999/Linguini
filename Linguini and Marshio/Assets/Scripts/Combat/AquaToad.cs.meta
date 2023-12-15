@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c24ad0b103124405da93705d9c710dbe
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - TsunamiPrefab: {fileID: 3279911538852898975, guid: 6186420aa00a640ebb9dacee229d5220, type: 3}
+  - WaterPrefab: {fileID: 1600522115474016168, guid: 338d6ae2207f44121a8596082bb9256a, type: 3}
+  - BubblePrefabGood: {fileID: 1238252902756461379, guid: 3dd388ddd060c4a4b8dbb4ba98888e5c, type: 3}
+  - BubblePrefab: {fileID: 1238252902756461379, guid: 3dd388ddd060c4a4b8dbb4ba98888e5c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

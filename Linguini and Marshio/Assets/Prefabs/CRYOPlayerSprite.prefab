@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1855089705573330516}
   - component: {fileID: 778024641494402043}
-  - component: {fileID: 7153867865433696985}
   - component: {fileID: 5993643435574749943}
   - component: {fileID: 3564153912507717836}
   - component: {fileID: 4166903768956541561}
@@ -94,25 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7153867865433696985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9073351982145846717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6928399eb42764a4881cc82230902abf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Lugini
-  unitLevel: 1
-  damage: 3
-  maxHp: 15
-  currentHp: 15
-  takeDamageSFX: {fileID: 8300000, guid: 1a223644919224499aeda478cf6bd7ea, type: 3}
-  dyingSFX: {fileID: 8300000, guid: 03ff32df5802449f3881a75adff12f9d, type: 3}
 --- !u!114 &5993643435574749943
 MonoBehaviour:
   m_ObjectHideFlags: 0

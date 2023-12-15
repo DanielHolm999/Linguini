@@ -3,9 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Threading.Tasks;
+using System.Resources;
 
 public enum RealBattleState { START, PLAYERTURN, ATTACKINGPHASE, ENEMYTURN, WON, LOST}
 
+public class BattleArgs // is passed to EnemyCombatBehaviour to update combat state
+{
+    public RealBattleState State {get; set;}
+    public Unit PlayerUnit {get; set;}
+    public Unit EnemyUnit {get; set;}
+    //other stuff
+}
 public class BattleSystem : MonoBehaviour
 {
     public RealBattleState state;
@@ -16,8 +24,10 @@ public class BattleSystem : MonoBehaviour
     public Transform enemyBattleStation;
 
 
-    Unit playerUnit;
-    Unit enemyUnit;
+    public Unit playerUnit { get; private set;}
+    public Unit enemyUnit {get; private set; }
+    [SerializeField]
+    EnemyCombatBehaviour enemyCombatBehaviour;
 
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
@@ -55,6 +65,7 @@ public class BattleSystem : MonoBehaviour
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<Unit>();
+        enemyCombatBehaviour = enemyGO.GetComponent<EnemyCombatBehaviour>();
 
         playerHUD.SetHud(playerUnit);
         enemyHUD.SetHud(enemyUnit);
@@ -268,7 +279,7 @@ public class BattleSystem : MonoBehaviour
 
         if (projectileScript != null)
         {
-            float projectileSpeed = Random.Range(13f, 18f); //Give a bigger speed range
+            float projectileSpeed = Random.Range(5f, 10f); //Give a bigger speed range
 
             Debug.Log("Projectilespeed is " + projectileSpeed);
 
@@ -328,7 +339,15 @@ public class BattleSystem : MonoBehaviour
     {
         //Logic to choose attack
 
-        yield return StartCoroutine(EnemyProjectileAttack());
+        //yield return StartCoroutine(EnemyProjectileAttack());
+        if (enemyCombatBehaviour != null)
+        {
+            yield return StartCoroutine(enemyCombatBehaviour.EnemyMove(this));
+        }
+        else 
+        {
+            yield return StartCoroutine(EnemyProjectileAttack());
+        }
 
         CheckPlayerState();
     }
