@@ -36,7 +36,6 @@ public class SkillTree : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StatsController.SkillPoints = 10;
         SkillPoint = StatsController.SkillPoints;
 
         SkillLevels = new int[6];

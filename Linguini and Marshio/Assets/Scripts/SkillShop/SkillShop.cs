@@ -14,19 +14,10 @@ public class SkillShop : MonoBehaviour, Interactable
 
     public void ChangeScene()
     {
-        CanvasSingleton.Instance.ShowCanvas();
+        if (CanvasSingleton.Instance != null)
+        {
+            CanvasSingleton.Instance.ShowCanvas();
+        }
         SceneManager.LoadScene(sceneName);
     }
-
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
 }
