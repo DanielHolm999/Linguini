@@ -14,6 +14,7 @@ public class SkillShop : MonoBehaviour, Interactable
 
     public void ChangeScene()
     {
+        CanvasSingleton.Instance.ShowCanvas();
         SceneManager.LoadScene(sceneName);
     }
 

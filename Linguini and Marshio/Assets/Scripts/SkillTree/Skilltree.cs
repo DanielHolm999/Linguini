@@ -5,7 +5,19 @@ using UnityEngine;
 public class SkillTree : MonoBehaviour
 {
     public static SkillTree skillTree;
-    private void Awake() => skillTree = this;
+    private void Awake() {
+        
+        if(skillTree != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        skillTree = this;
+        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(ConnectorHolder);
+        DontDestroyOnLoad(SkillHolder);
+    }
 
     public int[] SkillLevels;
     public int[] SkillCaps;
@@ -24,7 +36,8 @@ public class SkillTree : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SkillPoint = 20;
+        StatsController.SkillPoints = 10;
+        SkillPoint = StatsController.SkillPoints;
 
         SkillLevels = new int[6];
         SkillCaps = new[] { 1, 5, 5, 2, 10, 10 };

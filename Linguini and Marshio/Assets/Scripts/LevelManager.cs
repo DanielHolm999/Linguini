@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
 
     public void ChangeScene()
     {
+        CanvasSingleton.Instance.HideCanvas();
         SceneManager.LoadScene(sceneName);
     }
 }
