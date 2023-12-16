@@ -26,6 +26,7 @@ public class Unit : MonoBehaviour
     public bool TakeDamage(int damage)
     {
         currentHp -= damage;
+        Debug.Log($"{unitName} now has {currentHp} HP.");
         if (currentHp <= 0)
         {
             audioSource.PlayOneShot(dyingSFX);

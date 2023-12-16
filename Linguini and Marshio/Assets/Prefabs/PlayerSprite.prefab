@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1006323295450463721}
   - component: {fileID: 3585441511086390811}
   - component: {fileID: 5814039773445377349}
-  - component: {fileID: -5019263158549791549}
+  - component: {fileID: 2389628388666143729}
   m_Layer: 5
   m_Name: PlayerSprite
   m_TagString: Player
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Lugini
   unitLevel: 1
-  damage: 3
+  damage: 1
   maxHp: 15
   currentHp: 15
   takeDamageSFX: {fileID: 8300000, guid: 1a223644919224499aeda478cf6bd7ea, type: 3}
@@ -280,7 +280,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-5019263158549791549
+--- !u!114 &2389628388666143729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2574335524702187650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0765ff8a1aca34ef6b10e0936cd37441, type: 3}
+  m_Script: {fileID: 11500000, guid: 67da65819dddf4899b9af4f6ff6cd821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 5

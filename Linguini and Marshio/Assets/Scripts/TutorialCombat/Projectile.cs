@@ -40,9 +40,35 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if ((shooter == Shooter.Player && collider.gameObject.CompareTag("Enemy")) ||
-            (shooter == Shooter.Enemy && collider.gameObject.CompareTag("Player")))
+        //if enemy is hit
+        if (shooter == Shooter.Player && collider.gameObject.CompareTag("Enemy"))
         {
+            OnHit?.Invoke();
+            Unit unit = collider.gameObject.GetComponent<Unit>();
+            unit.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        if (shooter == Shooter.Enemy && collider.gameObject.CompareTag("Player"))
+        {
+            CrouchedStateScript crouchedScript = collider.gameObject.GetComponent<CrouchedStateScript>();
+            if (crouchedScript != null)
+            {
+                crouchedScript.TakeDamage(damage);
+            }
+            else
+            {
+                // Fallback to Unit script if CrouchedStateScript is not found
+                Unit unit = collider.gameObject.GetComponent<Unit>();
+                if (unit != null)
+                {
+                    unit.TakeDamage(damage);
+                }
+                else
+                {
+                    Debug.LogError("Appropriate damage handling script not found on the collided player object.");
+                }
+            }
+
             OnHit?.Invoke();
             Unit playerUnit = collider.gameObject.GetComponent<Unit>();
             if (playerUnit != null)
@@ -52,4 +78,11 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    /*
+    void HandleDamage(GameObject target)
+    {
+        Unit unit = target.GetComponent<Unit>();
+        unit.TakeDamage(damage);
+    }
+    */
 }

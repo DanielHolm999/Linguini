@@ -8,6 +8,8 @@ public enum BattleState { START, PLAYERTURN, ATTACKINGPHASE, ENEMYTURN, WON, LOS
 
 public class TutorialBattleSystem : MonoBehaviour
 {
+    private int tutorialStepCounter;
+
     public BattleState state;
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
@@ -39,13 +41,28 @@ public class TutorialBattleSystem : MonoBehaviour
     public GameObject animationSprite2;
     public GameObject luginiProjectilePrefab;
 
+    public GameObject luginiCrouchedSprite;
+
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         state = BattleState.START;
-
+        tutorialStepCounter = 0;
         StartCoroutine(SetupBattle());
+    }
+
+    private void Update()
+    {
+        // Toggle crouch on press and release of 'C' key
+        if (Input.GetKeyDown(KeyCode.C) && state == BattleState.ENEMYTURN)
+        {
+            Crouch(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.C))
+        {
+            Crouch(false);
+        }
     }
 
     IEnumerator SetupBattle()
@@ -59,6 +76,18 @@ public class TutorialBattleSystem : MonoBehaviour
 
         playerHUD.SetHud(playerUnit);
         enemyHUD.SetHud(enemyUnit);
+
+
+        CrouchedStateScript crouchedController = FindObjectOfType<CrouchedStateScript>();
+        if (crouchedController != null)
+        {
+            crouchedController.playerUnit = playerUnit;
+            crouchedController.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("CrouchedSpriteController not found in the scene.");
+        }
 
         dialogueBoxText.text = "What is that? A feral " + enemyUnit.unitName + " approaches!";
         yield return new WaitForSeconds(3f);
@@ -120,13 +149,30 @@ public class TutorialBattleSystem : MonoBehaviour
         attackSprite.gameObject.SetActive(false);
     }
 
+    private void Crouch(bool isCrouching)
+    {
+        // Activate/deactivate the player and crouched sprites based on crouch state
+        playerUnit.gameObject.SetActive(!isCrouching);
+        luginiCrouchedSprite.SetActive(isCrouching);
+    }
+
     #endregion
 
 
     #region PlayerStuff
     void PlayerTurn()
     {
-        dialogueBoxText.text = "Choose an action: ";
+        Crouch(false);
+        Debug.Log(tutorialStepCounter);
+        //tutorialStepCounter += 1;
+        if (tutorialStepCounter >= 2)
+        {
+            dialogueBoxText.text = "Time to end this fight! Choose skill ";
+        }
+        else
+        {
+            dialogueBoxText.text = "Choose attack: ";
+        }
     }
 
     IEnumerator PlayerAttack()
@@ -228,6 +274,10 @@ public class TutorialBattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f); // Wait a moment before switching back
         animationSprite2.SetActive(false);
         playerUnit.gameObject.SetActive(true);
+
+        bool isDead = enemyUnit.currentHp <= 0 ? true : false;
+        UpdateHUDAndCheckBattleState(isDead);
+
     }
     #endregion
 
@@ -235,8 +285,8 @@ public class TutorialBattleSystem : MonoBehaviour
     IEnumerator HandleEnemyDeath()
     {
         Vector3 originalPos = enemyUnit.transform.position;
-        Vector3 targetPos = originalPos + new Vector3(0, -180, 0);
-        yield return StartCoroutine(EnemyDeathAnimation(enemyUnit.transform, targetPos, 10f));
+        Vector3 targetPos = originalPos + new Vector3(0, -10, 0);
+        yield return StartCoroutine(EnemyDeathAnimation(enemyUnit.transform, targetPos, 20f));
         EndBattle();
     }
 
@@ -249,8 +299,14 @@ public class TutorialBattleSystem : MonoBehaviour
         }
     }
 
-    IEnumerator EnemyProjectileAttack()
+    IEnumerator EnemyProjectileAttack(int verticalOffsetType)
     {
+        Vector3 spawnPosition = enemyUnit.transform.position;
+        if (verticalOffsetType == 1) //high
+        {
+            float verticalOffset = 2.0f; //modify
+            spawnPosition += new Vector3(0, verticalOffset, 0);
+        }
         //Tutorial specific:
         var playerHp = playerUnit.currentHp;
         // Update text
@@ -259,7 +315,7 @@ public class TutorialBattleSystem : MonoBehaviour
         yield return new WaitForSeconds(2.5f); // Time before shooting
 
         // Instantiate and set up projectile
-        GameObject projectileObject = Instantiate(projectilePrefab, enemyUnit.transform.position, Quaternion.identity);
+        GameObject projectileObject = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
         Debug.Log("Projectile instantiated at position: " + enemyUnit.transform.position);
 
         Projectile projectileScript = projectileObject.GetComponent<Projectile>();
@@ -300,27 +356,40 @@ public class TutorialBattleSystem : MonoBehaviour
         //tutorial specific:
         if (playerUnit.currentHp < playerHp)
         {
+            if (tutorialStepCounter > 0)
+            {
+                tutorialStepCounter -= 1;
+            }
+
             dialogueBoxText.text = "You took a big hit!";
             yield return new WaitForSeconds(2f);
             dialogueBoxText.text = "No worries, in the tutorial your health gets reset!";
             yield return new WaitForSeconds(3f);
-            dialogueBoxText.text = "Keep practicing your jumps!";
+            dialogueBoxText.text = "Keep practicing your jumps and ducks!";
             yield return new WaitForSeconds(4f);
             playerUnit.currentHp = playerUnit.maxHp;
             playerHUD.SetHP(playerUnit.maxHp);
         }
         else
         {
+            
             dialogueBoxText.text = "Good job! You successfully dodged the attack!";
             yield return new WaitForSeconds(4f);
-            dialogueBoxText.text = "All monsters shoot at different speeds!";
-            yield return new WaitForSeconds(3f);
-            dialogueBoxText.text = "Some monsters even shoot at different speeds each time!";
-            yield return new WaitForSeconds(3f);
-            dialogueBoxText.text = "So always be ready when a monster is preparing an attack!";
-            yield return new WaitForSeconds(3f);
-            dialogueBoxText.text = "Now keep attacking it till it's hp is 0!";
-            yield return new WaitForSeconds(3f);
+            if(tutorialStepCounter < 2)
+            {
+                dialogueBoxText.text = "All monsters shoot at different speeds!";
+                yield return new WaitForSeconds(3f);
+                dialogueBoxText.text = "Some monsters even shoot at different speeds each time!";
+                yield return new WaitForSeconds(3f);
+                dialogueBoxText.text = "They can also shoot high or low";
+                yield return new WaitForSeconds(3f);
+                dialogueBoxText.text = "So always be ready when a monster is preparing an attack!";
+                yield return new WaitForSeconds(3f);
+                dialogueBoxText.text = "Now lets practice ducking under a high shot!";
+                yield return new WaitForSeconds(3f);
+
+            }
+            tutorialStepCounter += 1;
         }
     }
 
@@ -353,7 +422,13 @@ public class TutorialBattleSystem : MonoBehaviour
         yield return new WaitForSeconds(3f);
         dialogueBoxText.text = "When it's attack is close to you, hit SPACEBAR to jump over it!";
         yield return new WaitForSeconds(5f);
-        yield return StartCoroutine(EnemyProjectileAttack());
+        yield return StartCoroutine(EnemyProjectileAttack(0));
+
+        dialogueBoxText.text = "Ratty is about to attack, pay close attention!";
+        yield return new WaitForSeconds(3f);
+        dialogueBoxText.text = "When it's attack is close to you, hold down 'C' to duck under it!";
+        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(EnemyProjectileAttack(1));
 
         CheckPlayerState();
     }
