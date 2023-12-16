@@ -137,12 +137,12 @@ public class BattleSystem : MonoBehaviour
         Vector3 attackPosition = originalPosition + new Vector3(0.5f, 0, 0); // Adjust the distance
 
         dialogueBoxText.text = "Lugini launches a barearmed attack! ";
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
         yield return StartCoroutine(MoveToAttackPosition(attackPosition));
         yield return StartCoroutine(PerformAttackAnimation());
         yield return StartCoroutine(MoveToOriginalPosition(originalPosition));
 
+        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
         state = BattleState.ENEMYTURN;
 
         UpdateHUDAndCheckBattleState(isDead);
