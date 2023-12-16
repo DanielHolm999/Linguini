@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3c70ce9a223cb4fe78331dd193ceebc4
+guid: 8fd868fe738fd5840a43fcdbefc9a8ab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,19 +81,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -123,12 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fishingNPC_1
+      name: QuestNPC 1_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 39
         y: 25
-        width: 65
+        width: 42
         height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -137,19 +124,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25063fa5800cb48b8b63a27e130cd461
-      internalID: -1277624277
+      spriteID: d22c4e94fd53b1841adda365c921fd43
+      internalID: -836993105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fishingNPC_3
+      name: QuestNPC 1_3
       rect:
         serializedVersion: 2
-        x: 144
+        x: 168
         y: 25
-        width: 65
+        width: 41
         height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -158,8 +145,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ce5a38d80f14074f9424d50601df85f
-      internalID: -1094836280
+      spriteID: 11c78157354721a45bef073a2073ca90
+      internalID: 33990309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuestNPC 1_5
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 25
+        width: 41
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9a8e204ee80b4440bd266586bf111f8
+      internalID: -1032545815
       vertices: []
       indices: 
       edges: []
@@ -175,10 +183,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fishingNPC_0: 1701675313
-      fishingNPC_1: -1277624277
-      fishingNPC_2: -598609755
-      fishingNPC_3: -1094836280
+      QuestNPC 1_0: 1146257467
+      QuestNPC 1_1: -836993105
+      QuestNPC 1_2: -982872186
+      QuestNPC 1_3: 33990309
+      QuestNPC 1_4: -305571877
+      QuestNPC 1_5: -1032545815
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3c70ce9a223cb4fe78331dd193ceebc4
+guid: a8546602c89925d489c95538c90ca53b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,19 +72,6 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -123,12 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fishingNPC_1
+      name: WaterPlantNPC_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 25
         y: 25
-        width: 65
+        width: 56
         height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -137,17 +124,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25063fa5800cb48b8b63a27e130cd461
-      internalID: -1277624277
+      spriteID: a5acb47f1e234834488849664df87582
+      internalID: 902701027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fishingNPC_3
+      name: WaterPlantNPC_3
       rect:
         serializedVersion: 2
-        x: 144
+        x: 153
+        y: 25
+        width: 57
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a87007f868abfd24c99ef6bd4cd17560
+      internalID: 1599657420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterPlantNPC_5
+      rect:
+        serializedVersion: 2
+        x: 272
         y: 25
         width: 65
         height: 70
@@ -158,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ce5a38d80f14074f9424d50601df85f
-      internalID: -1094836280
+      spriteID: fa079d1d68ef2904396f26e13177f782
+      internalID: -1911663335
       vertices: []
       indices: 
       edges: []
@@ -175,10 +183,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fishingNPC_0: 1701675313
-      fishingNPC_1: -1277624277
-      fishingNPC_2: -598609755
-      fishingNPC_3: -1094836280
+      WaterPlantNPC_0: -1645486470
+      WaterPlantNPC_1: 902701027
+      WaterPlantNPC_2: 1533475271
+      WaterPlantNPC_3: 1599657420
+      WaterPlantNPC_4: 1617688742
+      WaterPlantNPC_5: -1911663335
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

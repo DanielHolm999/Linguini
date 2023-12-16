@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FishingNPC
+  m_Name: QuestNPC
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,15 +21,17 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1277624277, guid: 3c70ce9a223cb4fe78331dd193ceebc4, type: 3}
-    - time: 0.16666667
-      value: {fileID: -1094836280, guid: 3c70ce9a223cb4fe78331dd193ceebc4, type: 3}
+      value: {fileID: -836993105, guid: 8fd868fe738fd5840a43fcdbefc9a8ab, type: 3}
+    - time: 0.33333334
+      value: {fileID: 33990309, guid: 8fd868fe738fd5840a43fcdbefc9a8ab, type: 3}
+    - time: 0.6666667
+      value: {fileID: -1032545815, guid: 8fd868fe738fd5840a43fcdbefc9a8ab, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 6
+  m_SampleRate: 3
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,14 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1277624277, guid: 3c70ce9a223cb4fe78331dd193ceebc4, type: 3}
-    - {fileID: -1094836280, guid: 3c70ce9a223cb4fe78331dd193ceebc4, type: 3}
+    - {fileID: -836993105, guid: 8fd868fe738fd5840a43fcdbefc9a8ab, type: 3}
+    - {fileID: 33990309, guid: 8fd868fe738fd5840a43fcdbefc9a8ab, type: 3}
+    - {fileID: -1032545815, guid: 8fd868fe738fd5840a43fcdbefc9a8ab, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
