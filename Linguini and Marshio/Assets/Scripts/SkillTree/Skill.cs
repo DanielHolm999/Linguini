@@ -19,8 +19,8 @@ public class Skill : MonoBehaviour
         TitleText.text = $"{skillTree.SkillLevels[id]}/{SkillTree.skillTree.SkillCaps[id]}\n{skillTree.SkillNames[id]}";
         DescriptionText.text = $"{skillTree.SkillDescription[id]}\nCost: 1/{skillTree.SkillPoint} SP";
 
-        GetComponent<Image>().color = skillTree.SkillLevels[id] >= skillTree.SkillCaps[id] ? Color.yellow
-            : skillTree.SkillPoint >= 1 ? Color.green : Color.white;
+        //GetComponent<Image>().color = skillTree.SkillLevels[id] >= skillTree.SkillCaps[id] ? Color.yellow
+        //    : skillTree.SkillPoint >= 1 ? Color.green : Color.white;
 
 
         foreach (var connectedSkill in ConnectedUpgrades)
