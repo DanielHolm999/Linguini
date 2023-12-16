@@ -1,15 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Threading.Tasks;
+using System.Resources;
 
-public enum BattleState { START, PLAYERTURN, ATTACKINGPHASE, ENEMYTURN, WON, LOST }
-
-public class TutorialBattleSystem : MonoBehaviour
+public class CryoshellBattle : MonoBehaviour
 {
-    private int tutorialStepCounter;
-
     public BattleState state;
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
@@ -25,7 +22,6 @@ public class TutorialBattleSystem : MonoBehaviour
     public BattleHUD enemyHUD;
 
     public TextMeshProUGUI dialogueBoxText;
-
 
     public SpriteRenderer attackSprite; //Lugini in attack
     [SerializeField] private SpriteRenderer enemyAttackSprite;
@@ -48,7 +44,6 @@ public class TutorialBattleSystem : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         state = BattleState.START;
-        tutorialStepCounter = 0;
         StartCoroutine(SetupBattle());
     }
 
@@ -163,16 +158,8 @@ public class TutorialBattleSystem : MonoBehaviour
     void PlayerTurn()
     {
         Crouch(false);
-        Debug.Log(tutorialStepCounter);
-        //tutorialStepCounter += 1;
-        if (tutorialStepCounter >= 2)
-        {
-            dialogueBoxText.text = "Time to end this fight! Choose skill ";
-        }
-        else
-        {
-            dialogueBoxText.text = "Choose attack: ";
-        }
+        dialogueBoxText.text = "Choose attack: ";
+        
     }
 
     IEnumerator PlayerAttack()
@@ -352,45 +339,6 @@ public class TutorialBattleSystem : MonoBehaviour
         playerHUD.SetHP(playerUnit.currentHp);
         Debug.Log("HUD updated after attack");
         yield return new WaitForSeconds(2f); // Post-attack pause
-
-        //tutorial specific:
-        if (playerUnit.currentHp < playerHp)
-        {
-            if (tutorialStepCounter > 0)
-            {
-                tutorialStepCounter -= 1;
-            }
-
-            dialogueBoxText.text = "You took a big hit!";
-            yield return new WaitForSeconds(2f);
-            dialogueBoxText.text = "No worries, in the tutorial your health gets reset!";
-            yield return new WaitForSeconds(3f);
-            dialogueBoxText.text = "Keep practicing your jumps and ducks!";
-            yield return new WaitForSeconds(4f);
-            playerUnit.currentHp = playerUnit.maxHp;
-            playerHUD.SetHP(playerUnit.maxHp);
-        }
-        else
-        {
-            
-            dialogueBoxText.text = "Good job! You successfully dodged the attack!";
-            yield return new WaitForSeconds(4f);
-            if(tutorialStepCounter < 2)
-            {
-                dialogueBoxText.text = "All monsters shoot at different speeds!";
-                yield return new WaitForSeconds(3f);
-                dialogueBoxText.text = "Some monsters even shoot at different speeds each time!";
-                yield return new WaitForSeconds(3f);
-                dialogueBoxText.text = "They can also shoot high or low";
-                yield return new WaitForSeconds(3f);
-                dialogueBoxText.text = "So always be ready when a monster is preparing an attack!";
-                yield return new WaitForSeconds(3f);
-                dialogueBoxText.text = "Now lets practice ducking under a high shot!";
-                yield return new WaitForSeconds(3f);
-
-            }
-            tutorialStepCounter += 1;
-        }
     }
 
     IEnumerator EnemyNormalAttack()
@@ -415,20 +363,10 @@ public class TutorialBattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        dialogueBoxText.text = "Ratty took some damage! Good job";
-        yield return new WaitForSeconds(3f);
-
-        dialogueBoxText.text = "Ratty is about to attack, pay close attention!";
-        yield return new WaitForSeconds(3f);
-        dialogueBoxText.text = "When it's attack is close to you, hit SPACEBAR to jump over it!";
-        yield return new WaitForSeconds(5f);
+        yield return EnemyNormalAttack();
         yield return StartCoroutine(EnemyProjectileAttack(0));
 
-        dialogueBoxText.text = "Ratty is about to attack, pay close attention!";
-        yield return new WaitForSeconds(3f);
-        dialogueBoxText.text = "When it's attack is close to you, hold down 'C' to duck under it!";
-        yield return new WaitForSeconds(5f);
-        yield return StartCoroutine(EnemyProjectileAttack(1));
+        //yield return StartCoroutine(EnemyProjectileAttack(1));
 
         CheckPlayerState();
     }
@@ -484,3 +422,4 @@ public class TutorialBattleSystem : MonoBehaviour
     }
     #endregion
 }
+

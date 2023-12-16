@@ -1322,6 +1322,7 @@ MonoBehaviour:
   animationSprite1: {fileID: 372173513}
   animationSprite2: {fileID: 1864080239}
   luginiProjectilePrefab: {fileID: 8005962465551182871, guid: a7b752c377dd34b25b281217168c8c44, type: 3}
+  luginiCrouchedSprite: {fileID: 1811650236}
 --- !u!1 &910271211
 GameObject:
   m_ObjectHideFlags: 0
@@ -7369,9 +7370,10 @@ GameObject:
   - component: {fileID: 1811650240}
   - component: {fileID: 1811650239}
   - component: {fileID: 1811650238}
+  - component: {fileID: 1811650241}
   m_Layer: 0
   m_Name: LuginiCrouched
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7384,9 +7386,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811650236}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -403.76703, y: -19.488, z: -6090.0005}
-  m_LocalScale: {x: 180.493, y: 78.97513, z: 60.900005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -407.07, y: -10.53, z: 0}
+  m_LocalScale: {x: 212.78136, y: 93.65171, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1110893968}
@@ -7515,6 +7517,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1811650241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811650236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5380b22a958348b5ba719111a042263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUnit: {fileID: 0}
 --- !u!114 &1830347961 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9022543226031230130, guid: e060f14834e1049b2a4852a04b1ba010, type: 3}
@@ -7632,6 +7647,6 @@ SceneRoots:
   - {fileID: 896020497}
   - {fileID: 773774815}
   - {fileID: 1777808044}
-  - {fileID: 1110893968}
   - {fileID: 248747836}
   - {fileID: 330422190}
+  - {fileID: 1110893968}
