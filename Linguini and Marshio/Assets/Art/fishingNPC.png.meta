@@ -123,34 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fishingNPC_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d2713c2a5bb5442fb4e5344e3e108dd
-      internalID: 1701675313
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: fishingNPC_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
+        x: 16
+        y: 25
+        width: 65
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,6 +139,27 @@ TextureImporter:
       bones: []
       spriteID: 25063fa5800cb48b8b63a27e130cd461
       internalID: -1277624277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fishingNPC_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 25
+        width: 65
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ce5a38d80f14074f9424d50601df85f
+      internalID: -1094836280
       vertices: []
       indices: 
       edges: []
@@ -177,6 +177,8 @@ TextureImporter:
     nameFileIdTable:
       fishingNPC_0: 1701675313
       fishingNPC_1: -1277624277
+      fishingNPC_2: -598609755
+      fishingNPC_3: -1094836280
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

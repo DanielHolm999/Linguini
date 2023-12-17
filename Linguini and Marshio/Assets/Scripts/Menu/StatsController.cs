@@ -10,6 +10,9 @@ public static class StatsController
     public static int SkillPoints { get; set; }
     public static int Experience { get; set; }
     public static int MaxExperience { get; set; }
+    public static int AttackDamage { get; set; }
+    public static int Armor { get; set; }
+    public static int Money { get; set; }
 
     internal static void InitialSetup()
     {
@@ -18,6 +21,9 @@ public static class StatsController
         SkillPoints = 5;
         Experience = 0;
         MaxExperience = 100;
+        AttackDamage = 5;
+        Armor = 0;
+        Money = 0;
     }
 
 }
