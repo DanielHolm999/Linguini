@@ -40,6 +40,18 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        if (shooter == Shooter.Player && collider.gameObject.CompareTag("CryoShellShield"))
+        {
+            OnHit?.Invoke();
+            Destroy(gameObject);
+        }
+        if (shooter == Shooter.Player && collider.gameObject.CompareTag("Cryoshell"))
+        {
+            OnHit?.Invoke();
+            CryoshellUnit unit = collider.gameObject.GetComponent<CryoshellUnit>();
+            unit.TakeDamage(damage);
+            Destroy(gameObject);
+        }
         //if enemy is hit
         if (shooter == Shooter.Player && collider.gameObject.CompareTag("Enemy"))
         {

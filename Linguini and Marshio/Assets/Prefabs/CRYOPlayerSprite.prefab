@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1855089705573330516}
   - component: {fileID: 778024641494402043}
-  - component: {fileID: 5993643435574749943}
   - component: {fileID: 3564153912507717836}
   - component: {fileID: 4166903768956541561}
   - component: {fileID: 1389507816085302882}
   - component: {fileID: 691055875180325681}
+  - component: {fileID: -5450781949500286096}
+  - component: {fileID: -6798470787061001868}
   m_Layer: 5
   m_Name: CRYOPlayerSprite
   m_TagString: Player
@@ -93,25 +94,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5993643435574749943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9073351982145846717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6928399eb42764a4881cc82230902abf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Lugini
-  unitLevel: 1
-  damage: 3
-  maxHp: 15
-  currentHp: 15
-  takeDamageSFX: {fileID: 8300000, guid: 1a223644919224499aeda478cf6bd7ea, type: 3}
-  dyingSFX: {fileID: 8300000, guid: 03ff32df5802449f3881a75adff12f9d, type: 3}
 --- !u!82 &3564153912507717836
 AudioSource:
   m_ObjectHideFlags: 0
@@ -287,9 +269,41 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9073351982145846717}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0765ff8a1aca34ef6b10e0936cd37441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 5
+--- !u!114 &-5450781949500286096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073351982145846717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4091b851508e045aebbd8aed50d373fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 7
+--- !u!114 &-6798470787061001868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073351982145846717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6928399eb42764a4881cc82230902abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: Lugini
+  unitLevel: 1
+  damage: 50
+  maxHp: 80
+  currentHp: 80
+  takeDamageSFX: {fileID: 8300000, guid: 1a223644919224499aeda478cf6bd7ea, type: 3}
+  dyingSFX: {fileID: 8300000, guid: 03ff32df5802449f3881a75adff12f9d, type: 3}
