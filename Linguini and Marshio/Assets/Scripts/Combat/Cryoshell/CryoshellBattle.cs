@@ -30,9 +30,13 @@ public class CryoshellBattle : MonoBehaviour
 
     public SpriteRenderer deadSprite;
 
+    public AudioSource BGMAudioSource;
+
     private AudioSource audioSource;
     public AudioClip playerAttackingSFX;
     public AudioClip enemyAttackingSFX;
+    public AudioClip winningSFX;
+    public AudioClip losingSFX;
 
     public GameObject projectilePrefab;
 
@@ -104,6 +108,8 @@ public class CryoshellBattle : MonoBehaviour
     {
         if (state == BattleState.WON)
         {
+            BGMAudioSource.Stop();
+            audioSource.PlayOneShot(winningSFX);
             dialogueBoxText.text = "Yahoo!, Lugini defeated the " + enemyUnit.name;
             yield return new WaitForSeconds(4f);
             dialogueBoxText.text = "Lugini feels his strength growing";
@@ -117,6 +123,8 @@ public class CryoshellBattle : MonoBehaviour
         }
         else if (state == BattleState.LOST)
         {
+            BGMAudioSource.Stop();
+            audioSource.PlayOneShot(losingSFX);
             PlayerDeathAnimation();
             yield return new WaitForSeconds(2f);
             dialogueBoxText.text = enemyUnit.name + " was too formiddable for Lugini...";

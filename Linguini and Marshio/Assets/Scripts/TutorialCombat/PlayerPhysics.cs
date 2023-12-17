@@ -40,10 +40,10 @@ public class PlayerPhysics : MonoBehaviour
             {
                 Debug.Log("rb is null");
             }
-            //else if (!Mathf.Approximately(rb.velocity.y, 0f))
-            //{
-            //    Debug.Log("player isnt on ground, velocity is " + rb.velocity.y.ToString());
-            //}
+            else if (!Mathf.Approximately(rb.velocity.y, 0f))
+            {
+                Debug.Log("player isnt on ground, velocity is " + rb.velocity.y.ToString());
+            }
         }
     }
 }
