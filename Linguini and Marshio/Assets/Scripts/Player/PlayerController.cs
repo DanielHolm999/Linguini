@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Playercontroller : MonoBehaviour
 {
@@ -11,12 +12,15 @@ public class Playercontroller : MonoBehaviour
     public LayerMask InteractableLayer;
     private Animator animator;
 
-    //health
-    //public int maxHealth = 100;
-    //public int currentHealth;
-
     private void Awake()
     {
+        Debug.Log("statscontroller = " + StatsController.PlayerPositionMainWorld);
+        if (SceneManager.GetActiveScene().name == "MainWorld" && StatsController.PlayerPositionMainWorld != new Vector3())
+        {
+            Vector3 newPosition = StatsController.PlayerPositionMainWorld;
+            newPosition.y -= 0.3f;
+            transform.position = newPosition;
+        }
         animator = GetComponent<Animator>();
     }
 
@@ -59,10 +63,10 @@ public class Playercontroller : MonoBehaviour
         
         var faceingDir = new Vector3(animator.GetFloat("MoveX"), animator.GetFloat("MoveY"));
         var interactPos = transform.position + faceingDir;
-        Debug.DrawLine(transform.position, faceingDir, Color.red, 10f);
+        //Debug.DrawLine(transform.position, faceingDir, Color.red, 10f);
         Debug.Log("inputs " + faceingDir.ToString());
 
-        var collider = Physics2D.OverlapCircle(interactPos, 0.3f, InteractableLayer);
+        var collider = Physics2D.OverlapCircle(interactPos, 0.5f, InteractableLayer);
         if(collider != null)
         {
             collider.GetComponent<Interactable>()?.Interact();

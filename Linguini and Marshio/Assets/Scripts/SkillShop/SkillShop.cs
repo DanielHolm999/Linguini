@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SkillShop : MonoBehaviour, Interactable
 {
+    public Playercontroller playerController;
     public string sceneName;
     public void Interact()
     {
@@ -18,6 +19,7 @@ public class SkillShop : MonoBehaviour, Interactable
         {
             CanvasSingleton.Instance.ShowCanvas();
         }
+        StatsController.PlayerPositionMainWorld = playerController.transform.position;
         SceneManager.LoadScene(sceneName);
     }
 }

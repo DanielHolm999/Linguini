@@ -14,6 +14,8 @@ public static class StatsController
     public static int Armor { get; set; }
     public static int Money { get; set; }
 
+    public static Vector3 PlayerPositionMainWorld { get; set; }
+
     internal static void InitialSetup()
     {
         Health = 100;

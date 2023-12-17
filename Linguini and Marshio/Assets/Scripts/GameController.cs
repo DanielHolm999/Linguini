@@ -6,19 +6,6 @@ public enum GameState { FreeRoam, Battle, Dialog}
 
 public class GameController : MonoBehaviour
 {
-    //public static GameController gameController;
-
-    //public void Awake()
-    //{
-    //    if(gameController != null)
-    //    {
-    //        Destroy(gameObject);
-    //        return;
-    //    }
-    //    gameController = this;
-    //    DontDestroyOnLoad(gameObject);
-    //}
-
     [SerializeField] Playercontroller playercontroller;
     [SerializeField] BattleSystem battleSystem;
 
