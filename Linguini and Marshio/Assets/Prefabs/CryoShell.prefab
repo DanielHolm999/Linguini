@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 1735534122190473344}
   - component: {fileID: 6268112045771332700}
   - component: {fileID: 3096147437460708326}
-  - component: {fileID: 5597793092640558668}
+  - component: {fileID: -8183321015003914099}
+  - component: {fileID: 6149765469467264224}
   m_Layer: 0
   m_Name: CryoShell
-  m_TagString: Untagged
+  m_TagString: Cryoshell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +154,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9211316, y: 3.5}
   m_EdgeRadius: 0
---- !u!114 &5597793092640558668
+--- !u!50 &-8183321015003914099
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6776207306792351410}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &6149765469467264224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,13 +190,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6776207306792351410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6928399eb42764a4881cc82230902abf, type: 3}
+  m_Script: {fileID: 11500000, guid: 011436d3d731145ad89740884205bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shield: {fileID: 0}
   unitName: Cryo Shell
   unitLevel: 2
   damage: 3
-  maxHp: 30
-  currentHp: 30
+  maxHp: 100
+  currentHp: 100
   takeDamageSFX: {fileID: 0}
   dyingSFX: {fileID: 0}

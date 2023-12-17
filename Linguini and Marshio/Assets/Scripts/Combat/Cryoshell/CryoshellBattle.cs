@@ -4,9 +4,11 @@ using UnityEngine;
 using TMPro;
 using System.Threading.Tasks;
 using System.Resources;
+using UnityEngine.SceneManagement;
 
 public class CryoshellBattle : MonoBehaviour
 {
+    private string sceneToLoadOnWin = "MainWorld";
     public BattleState state;
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
@@ -16,7 +18,7 @@ public class CryoshellBattle : MonoBehaviour
 
 
     Unit playerUnit;
-    Unit enemyUnit;
+    CryoshellUnit enemyUnit;
 
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
@@ -25,6 +27,8 @@ public class CryoshellBattle : MonoBehaviour
 
     public SpriteRenderer attackSprite; //Lugini in attack
     [SerializeField] private SpriteRenderer enemyAttackSprite;
+
+    public SpriteRenderer deadSprite;
 
     private AudioSource audioSource;
     public AudioClip playerAttackingSFX;
@@ -67,7 +71,7 @@ public class CryoshellBattle : MonoBehaviour
         playerUnit = playerGO.GetComponent<Unit>();
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
-        enemyUnit = enemyGO.GetComponent<Unit>();
+        enemyUnit = enemyGO.GetComponent<CryoshellUnit>();
 
         playerHUD.SetHud(playerUnit);
         enemyHUD.SetHud(enemyUnit);
@@ -84,13 +88,10 @@ public class CryoshellBattle : MonoBehaviour
             Debug.LogError("CrouchedSpriteController not found in the scene.");
         }
 
-        dialogueBoxText.text = "What is that? A feral " + enemyUnit.unitName + " approaches!";
+        dialogueBoxText.text = "What an excrutiating cold... A chilling" + enemyUnit.unitName + " approaches!";
         yield return new WaitForSeconds(3f);
 
         dialogueBoxText.text = "It looks dangerous, you better be careful!";
-        yield return new WaitForSeconds(3f);
-
-        dialogueBoxText.text = "Try choosing attack and get its HP down!";
         yield return new WaitForSeconds(3f);
 
         state = BattleState.PLAYERTURN;
@@ -99,15 +100,41 @@ public class CryoshellBattle : MonoBehaviour
 
     }
 
-    void EndBattle()
+    IEnumerator EndBattle()
     {
         if (state == BattleState.WON)
         {
-            dialogueBoxText.text = "Congratulations, you completed the tutorial.";
+            dialogueBoxText.text = "Yahoo!, Lugini defeated the " + enemyUnit.name;
+            yield return new WaitForSeconds(4f);
+            dialogueBoxText.text = "Lugini feels his strength growing";
+            yield return new WaitForSeconds(4f);
+            dialogueBoxText.text = "Lugini realizes he still has a lot of training to do";
+            yield return new WaitForSeconds(4f);
+            dialogueBoxText.text = "This world is not like the one Lugini knew";
+            yield return new WaitForSeconds(4f);
+            dialogueBoxText.text = "he must become stronger";
+            SceneManager.LoadScene(sceneToLoadOnWin);
         }
         else if (state == BattleState.LOST)
         {
-            dialogueBoxText.text = enemyUnit.unitName + " devoured Lugini, next up: Princess is going down";
+            PlayerDeathAnimation();
+            yield return new WaitForSeconds(2f);
+            dialogueBoxText.text = enemyUnit.name + " was too formiddable for Lugini...";
+            yield return new WaitForSeconds(4f);
+            dialogueBoxText.text = enemyUnit.name + "'s shield glowing with each block";
+            yield return new WaitForSeconds(4f);
+            dialogueBoxText.text = "seemed to make him stronger...";
+            yield return new WaitForSeconds(4f);
+            dialogueBoxText.text = enemyUnit.name + " also melee attacked more often..";
+            yield return new WaitForSeconds(4f);
+            dialogueBoxText.text = "in proportion to how many projectiles he blocked..";
+            yield return new WaitForSeconds(4f);
+            dialogueBoxText.text = "Perhaps there is an element of risk/reward";
+            yield return new WaitForSeconds(4f);
+            dialogueBoxText.text = "Lets try again";
+            yield return new WaitForSeconds(4f);
+            Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.name);
         }
     }
 
@@ -149,6 +176,38 @@ public class CryoshellBattle : MonoBehaviour
         // Activate/deactivate the player and crouched sprites based on crouch state
         playerUnit.gameObject.SetActive(!isCrouching);
         luginiCrouchedSprite.SetActive(isCrouching);
+    }
+
+    IEnumerator EnemyDeathAnimation(Transform transform, Vector3 target, float speed)
+    {
+        float duration = 3f;
+        float elapsedTime = 0;
+        SpriteRenderer enemySprite = transform.GetComponent<SpriteRenderer>();
+        Color originalColor = enemySprite.color;
+        Color transparentColor = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
+        while (elapsedTime < duration)
+        {
+            // Move the enemy towards the target
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+            // Fade out the enemy gradually
+            enemySprite.color = Color.Lerp(originalColor, transparentColor, elapsedTime / duration);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Make sure the enemy is fully transparent and has reached the target position
+        transform.position = target;
+        enemySprite.color = transparentColor;
+
+        // Optional: Destroy the enemy GameObject or disable it
+        // Destroy(enemyTransform.gameObject);
+    }
+    void PlayerDeathAnimation()
+    {
+        playerUnit.gameObject.SetActive(false);
+        deadSprite.gameObject.SetActive(true);
     }
 
     #endregion
@@ -233,6 +292,8 @@ public class CryoshellBattle : MonoBehaviour
 
         yield return new WaitForSeconds(1f); // Wait for another second
 
+        enemyUnit.TryActivateShield();
+
         // Instantiate and fire the projectile
         GameObject projectileObject = Instantiate(luginiProjectilePrefab, playerUnit.transform.position, Quaternion.identity);
         Projectile projectileScript = projectileObject.GetComponent<Projectile>();
@@ -274,16 +335,8 @@ public class CryoshellBattle : MonoBehaviour
         Vector3 originalPos = enemyUnit.transform.position;
         Vector3 targetPos = originalPos + new Vector3(0, -10, 0);
         yield return StartCoroutine(EnemyDeathAnimation(enemyUnit.transform, targetPos, 20f));
-        EndBattle();
-    }
-
-    IEnumerator EnemyDeathAnimation(Transform transform, Vector3 target, float speed)
-    {
-        while (transform.position != target)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-            yield return null;
-        }
+        state = BattleState.WON;
+        StartCoroutine(EndBattle());
     }
 
     IEnumerator EnemyProjectileAttack(int verticalOffsetType)
@@ -291,11 +344,10 @@ public class CryoshellBattle : MonoBehaviour
         Vector3 spawnPosition = enemyUnit.transform.position;
         if (verticalOffsetType == 1) //high
         {
-            float verticalOffset = 2.0f; //modify
+            float verticalOffset = 1.0f; //modify
             spawnPosition += new Vector3(0, verticalOffset, 0);
         }
-        //Tutorial specific:
-        var playerHp = playerUnit.currentHp;
+
         // Update text
         dialogueBoxText.text = enemyUnit.unitName + " prepares a ranged attack!";
         Debug.Log("Preparing ranged attack");
@@ -350,12 +402,12 @@ public class CryoshellBattle : MonoBehaviour
         Vector3 attackPosition = originalPosition + new Vector3(-0.5f, 0, 0);
 
         dialogueBoxText.text = enemyUnit.unitName + " launches an attack!";
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
 
         yield return StartCoroutine(MoveTowards(enemyUnit.transform, attackPosition, 0.8f));
         yield return StartCoroutine(PerformEnemyAttackAnimation());
         yield return StartCoroutine(MoveTowards(enemyUnit.transform, originalPosition, 0.8f));
 
+        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
         playerHUD.SetHP(playerUnit.currentHp);
 
         yield return new WaitForSeconds(2f);
@@ -363,22 +415,37 @@ public class CryoshellBattle : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        yield return EnemyNormalAttack();
-        yield return StartCoroutine(EnemyProjectileAttack(0));
+        var projectileDamage = projectilePrefab.GetComponent<Projectile>().damage;
+        var enemyDamage = enemyUnit.damage;
+        if (projectileDamage > enemyDamage)
+        {
+            yield return StartCoroutine(EnemyProjectileAttack(Random.Range(0,2)));
+        }
+        else if(projectileDamage < enemyDamage)
+        {
+            if (Random.Range(0, 100) < 75)
+            {
+                yield return EnemyNormalAttack();
 
-        //yield return StartCoroutine(EnemyProjectileAttack(1));
-
+            }
+            else
+            {
+                yield return StartCoroutine(EnemyProjectileAttack(Random.Range(0, 2)));
+            }
+        }
         CheckPlayerState();
     }
 
     IEnumerator PerformEnemyAttackAnimation()
     {
-        enemyAttackSprite.enabled = true; // Show the enemy attack sprite
+        enemyUnit.gameObject.SetActive(false);
+        enemyAttackSprite.gameObject.SetActive(true);
         audioSource.PlayOneShot(enemyAttackingSFX);
 
         yield return new WaitForSeconds(1f);
 
-        enemyAttackSprite.enabled = false; // Hide the enemy attack sprite
+        enemyUnit.gameObject.SetActive(true);
+        enemyAttackSprite.gameObject.SetActive(false);
     }
 
     void CheckPlayerState()
@@ -387,7 +454,7 @@ public class CryoshellBattle : MonoBehaviour
         if (isDead)
         {
             state = BattleState.LOST;
-            EndBattle();
+            StartCoroutine(EndBattle());
         }
         else
         {
