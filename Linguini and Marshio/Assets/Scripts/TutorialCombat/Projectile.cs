@@ -70,11 +70,6 @@ public class Projectile : MonoBehaviour
             }
 
             OnHit?.Invoke();
-            Unit playerUnit = collider.gameObject.GetComponent<Unit>();
-            if (playerUnit != null)
-            {
-                playerUnit.TakeDamage(damage);
-            }
             Destroy(gameObject);
         }
     }
