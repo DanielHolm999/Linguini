@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FireBiome.unity
     guid: 03269b2489c6b44d99d20a408d9f8beb
+  - enabled: 1
+    path: Assets/Scenes/CryoBiome.unity
+    guid: a1b4963c74f154d84938608b1db3f4b1
+  - enabled: 1
+    path: Assets/Scenes/WaterBiome.unity
+    guid: b0c3ff5d35dc64b63b1f3645c2eefb82
   m_configObjects: {}
