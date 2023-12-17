@@ -302,7 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Lugini
   unitLevel: 1
-  damage: 50
+  damage: 5
   maxHp: 80
   currentHp: 80
   takeDamageSFX: {fileID: 8300000, guid: 1a223644919224499aeda478cf6bd7ea, type: 3}
