@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DesertBiome.unity
     guid: bcd8ecdaf4a41419ca6ae3608669e009
+  - enabled: 1
+    path: Assets/Scenes/GhostBiome.unity
+    guid: c1462d6807512434cb4c3c1a18994c34
   m_configObjects: {}
