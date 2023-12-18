@@ -1316,8 +1316,9 @@ MonoBehaviour:
   dialogueBoxText: {fileID: 1592162870}
   attackSprite: {fileID: 1409792216}
   enemyAttackSprite: {fileID: 1409795280}
-  playerAttackingSFX: {fileID: 0}
-  enemyAttackingSFX: {fileID: 0}
+  playerAttackingSFX: {fileID: 8300000, guid: 09d0f2ec7333b4934bd256d42b91c20d, type: 3}
+  enemyAttackingSFX: {fileID: 8300000, guid: cf963d6c67cb14ba6acd47e3babfbc29, type: 3}
+  WinningBattleSFX: {fileID: 8300000, guid: b6795c4640e27416ea6630f7355d24f8, type: 3}
   projectilePrefab: {fileID: 5370642598603705284, guid: 113ffbda46ebf479ba07df167d93841c, type: 3}
   animationSprite1: {fileID: 372173513}
   animationSprite2: {fileID: 1864080239}

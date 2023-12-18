@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { START, PLAYERTURN, ATTACKINGPHASE, ENEMYTURN, WON, LOST }
 
@@ -17,7 +18,7 @@ public class TutorialBattleSystem : MonoBehaviour
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
 
-
+    public SceneManager sceneManager;
     Unit playerUnit;
     Unit enemyUnit;
 
@@ -33,6 +34,9 @@ public class TutorialBattleSystem : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip playerAttackingSFX;
     public AudioClip enemyAttackingSFX;
+    public AudioClip WinningBattleSFX;
+
+   
 
     public GameObject projectilePrefab;
 
@@ -104,11 +108,14 @@ public class TutorialBattleSystem : MonoBehaviour
 
     }
 
-    void EndBattle()
+    IEnumerator EndBattle()
     {
         if (state == BattleState.WON)
         {
             dialogueBoxText.text = "Congratulations, you completed the tutorial.";
+            audioSource.PlayOneShot(WinningBattleSFX);
+            yield return new WaitForSeconds(4);
+            SceneManager.LoadScene("StartMenu");
         }
         else if (state == BattleState.LOST)
         {
@@ -287,7 +294,7 @@ public class TutorialBattleSystem : MonoBehaviour
         Vector3 originalPos = enemyUnit.transform.position;
         Vector3 targetPos = originalPos + new Vector3(0, -10, 0);
         yield return StartCoroutine(EnemyDeathAnimation(enemyUnit.transform, targetPos, 20f));
-        EndBattle();
+        StartCoroutine(EndBattle());
     }
 
     IEnumerator EnemyDeathAnimation(Transform transform, Vector3 target, float speed)
@@ -314,6 +321,7 @@ public class TutorialBattleSystem : MonoBehaviour
         Debug.Log("Preparing ranged attack");
         yield return new WaitForSeconds(2.5f); // Time before shooting
 
+        audioSource.PlayOneShot(enemyAttackingSFX);
         // Instantiate and set up projectile
         GameObject projectileObject = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
         Debug.Log("Projectile instantiated at position: " + enemyUnit.transform.position);
@@ -449,7 +457,7 @@ public class TutorialBattleSystem : MonoBehaviour
         if (isDead)
         {
             state = BattleState.LOST;
-            EndBattle();
+            StartCoroutine(EndBattle());
         }
         else
         {
