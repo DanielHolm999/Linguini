@@ -307,3 +307,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+<<<<<<< HEAD
+=======
+--- !u!114 &691055875180325681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073351982145846717}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0765ff8a1aca34ef6b10e0936cd37441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 5
+--- !u!114 &-5450781949500286096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073351982145846717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4091b851508e045aebbd8aed50d373fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 7
+--- !u!114 &-6798470787061001868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073351982145846717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6928399eb42764a4881cc82230902abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: Lugini
+  unitLevel: 1
+  damage: 5
+  maxHp: 80
+  currentHp: 80
+  takeDamageSFX: {fileID: 8300000, guid: 1a223644919224499aeda478cf6bd7ea, type: 3}
+  dyingSFX: {fileID: 8300000, guid: 03ff32df5802449f3881a75adff12f9d, type: 3}
+>>>>>>> a4f2a18b9c4f4d79da7bc45b660d444725f71ab4

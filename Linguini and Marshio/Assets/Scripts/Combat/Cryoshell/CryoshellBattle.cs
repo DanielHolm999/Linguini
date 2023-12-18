@@ -225,7 +225,7 @@ public class CryoshellBattle : MonoBehaviour
     void PlayerTurn()
     {
         Crouch(false);
-        dialogueBoxText.text = "Choose attack: ";
+        dialogueBoxText.text = "Choose an action: ";
         
     }
 

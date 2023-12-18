@@ -31,7 +31,7 @@ public class PlayerPhysics : MonoBehaviour
     public void Jump()
     {
         // Simple jump logic
-        if (rb != null && Mathf.Approximately(rb.velocity.y, 0f))  // Check if player is on the ground
+        if (rb != null && Mathf.Approximately(rb.velocity.y, 0.8f))  // Check if player is on the ground
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
@@ -42,7 +42,7 @@ public class PlayerPhysics : MonoBehaviour
             {
                 Debug.Log("rb is null");
             }
-            else if (!Mathf.Approximately(rb.velocity.y, 0f))
+            else if (!Mathf.Approximately(rb.velocity.y, 0.8f))
             {
                 Debug.Log("player isnt on ground, velocity is " + rb.velocity.y.ToString());
             }
