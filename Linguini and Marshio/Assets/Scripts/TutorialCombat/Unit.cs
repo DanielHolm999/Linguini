@@ -6,12 +6,12 @@ public class Unit : MonoBehaviour
 {
    
     public string unitName;
-    public int unitLevel = StatsController.Level;
+    public int unitLevel;
 
-    public int damage = StatsController.AttackDamage;
+    public int damage;
 
-    public int maxHp = StatsController.MaxHealth;
-    public int currentHp = StatsController.Health;
+    public int maxHp;
+    public int currentHp;
 
 
     public AudioClip takeDamageSFX;
@@ -21,13 +21,18 @@ public class Unit : MonoBehaviour
 
     private void Start()
     {
-     unitLevel = StatsController.Level;
 
-    damage = StatsController.AttackDamage;
-
-    maxHp = StatsController.MaxHealth;
-    currentHp = StatsController.Health;
-    audioSource = GetComponent<AudioSource>();
+        if (gameObject.name == "CRYOPlayerSprite"
+            || gameObject.name == "WotahPlayerSprite"
+            || gameObject.name == "PlayerSprite")
+        {
+            unitLevel = StatsController.Level;
+            damage = StatsController.AttackDamage;
+            maxHp = StatsController.MaxHealth;
+            currentHp = StatsController.Health;
+        }
+        audioSource = GetComponent<AudioSource>();
+        Debug.Log("lugini hp is: " + currentHp);
     }
 
     public bool TakeDamage(int damage)
