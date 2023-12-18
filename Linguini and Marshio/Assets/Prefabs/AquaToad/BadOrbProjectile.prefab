@@ -101,7 +101,7 @@ MonoBehaviour:
   speed: 5
   direction: {x: 0, y: 0}
   lifetime: 5
-  damage: 10
+  damage: 3
   shooter: 1
 --- !u!58 &-7165579166529019296
 CircleCollider2D:
