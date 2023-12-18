@@ -40,16 +40,57 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if ((shooter == Shooter.Player && collider.gameObject.CompareTag("Enemy")) ||
-            (shooter == Shooter.Enemy && collider.gameObject.CompareTag("Player")))
+        if (shooter == Shooter.Player && collider.gameObject.CompareTag("CryoShellShield"))
         {
             OnHit?.Invoke();
-            Unit playerUnit = collider.gameObject.GetComponent<Unit>();
-            if (playerUnit != null)
+            Destroy(gameObject);
+        }
+        if (shooter == Shooter.Player && collider.gameObject.CompareTag("Cryoshell"))
+        {
+            OnHit?.Invoke();
+            CryoshellUnit unit = collider.gameObject.GetComponent<CryoshellUnit>();
+            unit.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        //if enemy is hit
+        if (shooter == Shooter.Player && collider.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("is enemy");
+            OnHit?.Invoke();
+            Unit unit = collider.gameObject.GetComponent<Unit>();
+            unit.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        if (shooter == Shooter.Enemy && collider.gameObject.CompareTag("Player"))
+        {
+            CrouchedStateScript crouchedScript = collider.gameObject.GetComponent<CrouchedStateScript>();
+            if (crouchedScript != null)
             {
-                playerUnit.TakeDamage(damage);
+                crouchedScript.TakeDamage(damage);
             }
+            else
+            {
+                // Fallback to Unit script if CrouchedStateScript is not found
+                Unit unit = collider.gameObject.GetComponent<Unit>();
+                if (unit != null)
+                {
+                    unit.TakeDamage(damage);
+                }
+                else
+                {
+                    Debug.LogError("Appropriate damage handling script not found on the collided player object.");
+                }
+            }
+
+            OnHit?.Invoke();
             Destroy(gameObject);
         }
     }
+    /*
+    void HandleDamage(GameObject target)
+    {
+        Unit unit = target.GetComponent<Unit>();
+        unit.TakeDamage(damage);
+    }
+    */
 }

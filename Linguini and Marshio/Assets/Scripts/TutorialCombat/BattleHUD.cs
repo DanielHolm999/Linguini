@@ -22,6 +22,16 @@ public class BattleHUD : MonoBehaviour
         fill.color = gradient.Evaluate(1f);
     }
 
+    public void SetHud(CryoshellUnit unit)
+    {
+        nameText.text = unit.unitName;
+        levelText.text = "Level " + unit.unitLevel;
+        hpSlider.maxValue = unit.maxHp;
+        hpSlider.value = unit.currentHp;
+
+        fill.color = gradient.Evaluate(1f);
+    }
+
     public void SetHP(int hp)
     {
         //hpSlider.value = hp;

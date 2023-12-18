@@ -109,7 +109,7 @@ MonoBehaviour:
   maxHp: 10
   currentHp: 10
   takeDamageSFX: {fileID: 8300000, guid: 163166e1af88a446787830769621fa15, type: 3}
-  dyingSFX: {fileID: 0}
+  dyingSFX: {fileID: 8300000, guid: 1a223644919224499aeda478cf6bd7ea, type: 3}
 --- !u!61 &4748278477808347704
 BoxCollider2D:
   m_ObjectHideFlags: 0
