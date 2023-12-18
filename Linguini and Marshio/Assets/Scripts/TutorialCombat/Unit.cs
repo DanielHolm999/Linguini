@@ -21,7 +21,13 @@ public class Unit : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+     unitLevel = StatsController.Level;
+
+    damage = StatsController.AttackDamage;
+
+    maxHp = StatsController.MaxHealth;
+    currentHp = StatsController.Health;
+    audioSource = GetComponent<AudioSource>();
     }
 
     public bool TakeDamage(int damage)
