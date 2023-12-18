@@ -22,9 +22,9 @@ public class Unit : MonoBehaviour
     private void Start()
     {
 
-        if (gameObject.name == "CRYOPlayerSprite"
-            || gameObject.name == "WotahPlayerSprite"
-            || gameObject.name == "PlayerSprite")
+        if (gameObject.name == "CRYOPlayerSprite(Clone)"
+            || gameObject.name == "WotahPlayerSprite(Clone)"
+            || gameObject.name == "PlayerSprite(Clone)")
         {
             //unitLevel = StatsController.Level;
             //damage = StatsController.AttackDamage;
