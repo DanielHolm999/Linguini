@@ -1210,7 +1210,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 827193302}
-  - component: {fileID: 827193303}
   - component: {fileID: 827193304}
   - component: {fileID: 827193305}
   m_Layer: 0
@@ -1235,40 +1234,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &827193303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 827193300}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe3c7e923db9148e794f670b809ca122, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  playerPrefab: {fileID: 9073351982145846717, guid: bb278d2d8b58745a2a2f27246250deaf, type: 3}
-  enemyPrefab: {fileID: 6776207306792351410, guid: 897671542e0184a4f8aa89f7031c8ba1, type: 3}
-  playerBattleStation: {fileID: 528254644}
-  enemyBattleStation: {fileID: 992841138}
-  deadSprite: {fileID: 0}
-  winningSFX: {fileID: 0}
-  losingSFX: {fileID: 0}
-  BGMAudioSource: {fileID: 0}
-  enemyCombatBehaviour: {fileID: 0}
-  playerHUD: {fileID: 645739294}
-  enemyHUD: {fileID: 630518080}
-  dialogueBoxText: {fileID: 701393612}
-  attackSprite: {fileID: 0}
-  enemyAttackSprite: {fileID: 0}
-  playerAttackingSFX: {fileID: 0}
-  enemyAttackingSFX: {fileID: 0}
-  projectilePrefab: {fileID: 6153724661841086983, guid: 9850bb41a2df4425cbf6d93c608ba428, type: 3}
-  animationSprite1: {fileID: 0}
-  animationSprite2: {fileID: 0}
-  luginiProjectilePrefab: {fileID: 1544623104996092732, guid: a2a1c35906eea4e379e8ad1cc1bbfd30, type: 3}
-  luginiCrouchedSprite: {fileID: 0}
 --- !u!114 &827193304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1294,7 +1259,7 @@ MonoBehaviour:
   deadSprite: {fileID: 1842254322}
   BGMAudioSource: {fileID: 867639286}
   playerAttackingSFX: {fileID: 8300000, guid: 09d0f2ec7333b4934bd256d42b91c20d, type: 3}
-  enemyAttackingSFX: {fileID: 8300000, guid: 09d0f2ec7333b4934bd256d42b91c20d, type: 3}
+  enemyAttackingSFX: {fileID: 8300000, guid: b500087e892a7445f9ae7a87e473734d, type: 3}
   winningSFX: {fileID: 8300000, guid: a3c5bab87195d41368b818ee3eeeb27a, type: 3}
   losingSFX: {fileID: 8300000, guid: b6795c4640e27416ea6630f7355d24f8, type: 3}
   projectilePrefab: {fileID: 6153724661841086983, guid: 9850bb41a2df4425cbf6d93c608ba428, type: 3}
@@ -1506,7 +1471,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1490fe63561e84f38971dcc8df2db3ca, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.097
+  m_Volume: 0.075
   m_Pitch: 1
   Loop: 1
   Mute: 0

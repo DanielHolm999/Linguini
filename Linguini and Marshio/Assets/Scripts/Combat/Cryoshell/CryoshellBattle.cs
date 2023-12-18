@@ -376,7 +376,7 @@ public class CryoshellBattle : MonoBehaviour
 
         if (projectileScript != null)
         {
-            float projectileSpeed = Random.Range(13f, 18f);
+            float projectileSpeed = Random.Range(13f, 32f);
             Debug.Log("Projectilespeed is " + projectileSpeed);
             projectileScript.SetSpeed(projectileSpeed);
             Vector3 directionToPlayer = playerUnit.transform.position - enemyUnit.transform.position;
@@ -433,6 +433,7 @@ public class CryoshellBattle : MonoBehaviour
         if (projectileDamage > enemyDamage)
         {
             yield return StartCoroutine(EnemyProjectileAttack(Random.Range(0,2)));
+
         }
         else if(projectileDamage < enemyDamage)
         {
