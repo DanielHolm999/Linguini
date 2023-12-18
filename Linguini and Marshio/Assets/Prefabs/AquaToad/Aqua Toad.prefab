@@ -333,8 +333,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2107224603
-  m_SortingLayer: 2
+  m_SortingLayerID: 810582811
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 465885405, guid: eef29d07bebc2494882a0522e9ceb5a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -523,3 +523,7 @@ MonoBehaviour:
   WaterPrefab: {fileID: 4217333103143878560, guid: 33b5e305273d548168d5a265a10cd5f5, type: 3}
   BubblePrefabGood: {fileID: 1238252902756461379, guid: 3dd388ddd060c4a4b8dbb4ba98888e5c, type: 3}
   BubblePrefabBad: {fileID: 5819441313272806443, guid: ca5453a05274c4f1c85f7ddfbd92a73f, type: 3}
+  bubbleSoundGood: {fileID: 8300000, guid: 24939fcd9ff66496a873d42555fe0d78, type: 3}
+  bubbleSoundBad: {fileID: 8300000, guid: 5b7a4e69d00fe48cba244269bf996d99, type: 3}
+  waterSound: {fileID: 8300000, guid: 6582ff6fd783649e885f5d1fb2bda2f1, type: 3}
+  tsunamiSound: {fileID: 8300000, guid: 991dad56e98c34932bf2bb5aa481ecf4, type: 3}

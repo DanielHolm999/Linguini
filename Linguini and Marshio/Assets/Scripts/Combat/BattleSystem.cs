@@ -4,11 +4,15 @@ using UnityEngine;
 using TMPro;
 using System.Threading.Tasks;
 using System.Resources;
+using UnityEngine.SceneManagement;
+
+
 
 public enum RealBattleState { START, PLAYERTURN, ATTACKINGPHASE, ENEMYTURN, WON, LOST}
 
 public class BattleArgs // is passed to EnemyCombatBehaviour to update combat state
 {
+
     public RealBattleState State {get; set;}
     public Unit PlayerUnit {get; set;}
     public Unit EnemyUnit {get; set;}
@@ -16,12 +20,19 @@ public class BattleArgs // is passed to EnemyCombatBehaviour to update combat st
 }
 public class BattleSystem : MonoBehaviour
 {
+    private string sceneToLoadOnWin = "MainWorld";
+
     public RealBattleState state;
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
+    public SpriteRenderer deadSprite;
+    public AudioClip winningSFX;
+    public AudioClip losingSFX;
+    public AudioSource BGMAudioSource;
+
 
 
     public Unit playerUnit { get; private set;}
@@ -48,14 +59,30 @@ public class BattleSystem : MonoBehaviour
     public GameObject animationSprite1;
     public GameObject animationSprite2;
     public GameObject luginiProjectilePrefab;
+    public GameObject luginiCrouchedSprite;
+
 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         state = RealBattleState.START;
+        
 
         StartCoroutine(SetupBattle());
+    }
+
+    void Update()
+    {
+        // Toggle crouch on press and release of 'C' key
+        if (Input.GetKeyDown(KeyCode.C) && state == RealBattleState.ENEMYTURN)
+        {
+            Crouch(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.C))
+        {
+            Crouch(false);
+        }
     }
 
     IEnumerator SetupBattle()
@@ -67,32 +94,56 @@ public class BattleSystem : MonoBehaviour
         enemyUnit = enemyGO.GetComponent<Unit>();
         enemyCombatBehaviour = enemyGO.GetComponent<EnemyCombatBehaviour>();
 
+        CrouchedStateScript crouchedController = FindObjectOfType<CrouchedStateScript>();
+        if (crouchedController != null)
+        {
+            crouchedController.playerUnit = playerUnit;
+            crouchedController.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("CrouchedSpriteController not found in the scene.");
+        }
+
         playerHUD.SetHud(playerUnit);
         enemyHUD.SetHud(enemyUnit);
 
         dialogueBoxText.text = "The cold is excrutiating, a chilling wind arrives...";
         yield return new WaitForSeconds(3f);
 
-        dialogueBoxText.text = "A " + enemyUnit.name + " Is approaching!";
+        dialogueBoxText.text = "A " + enemyUnit.unitName + " Is approaching!";
         yield return new WaitForSeconds(3f);
 
         state = RealBattleState.PLAYERTURN;
         PlayerTurn();
     }
 
-    void EndBattle()
+    IEnumerator EndBattle()
     {
         if (state == RealBattleState.WON)
         {
+            BGMAudioSource.Stop();
+            audioSource.PlayOneShot(winningSFX);
             //Remember sounds
             dialogueBoxText.text = "Tonight we are victorious";
+            SceneManager.LoadScene(sceneToLoadOnWin);
+
         }
         else if (state == RealBattleState.LOST)
         {
             //Remember sounds
+            BGMAudioSource.Stop();
+            audioSource.PlayOneShot(losingSFX);
+            PlayerDeathAnimation();
             dialogueBoxText.text = enemyUnit.unitName + " devoured Lugini, next up: Princess is going down";
+            yield return new WaitForSeconds(2f);
+            Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.name);
+
         }
     }
+
+
 
     #region animationstuff
     IEnumerator MoveTowards(Transform transform, Vector3 target, float speed)
@@ -254,7 +305,7 @@ public class BattleSystem : MonoBehaviour
         Vector3 originalPos = enemyUnit.transform.position;
         Vector3 targetPos = originalPos + new Vector3(0, -180, 0);
         yield return StartCoroutine(EnemyDeathAnimation(enemyUnit.transform, targetPos, 10f));
-        EndBattle();
+        StartCoroutine(EndBattle());
     }
 
     IEnumerator EnemyDeathAnimation(Transform transform, Vector3 target, float speed)
@@ -374,7 +425,7 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         {
             state = RealBattleState.LOST;
-            EndBattle();
+            StartCoroutine(EndBattle());
         }
         else
         {
@@ -382,6 +433,19 @@ public class BattleSystem : MonoBehaviour
             PlayerTurn();
         }
     }
+    private void Crouch(bool isCrouching)
+    {
+        // Activate/deactivate the player and crouched sprites based on crouch state
+        playerUnit.gameObject.SetActive(!isCrouching);
+        luginiCrouchedSprite.SetActive(isCrouching);
+    }
+
+    void PlayerDeathAnimation()
+    {
+        playerUnit.gameObject.SetActive(false);
+        deadSprite.gameObject.SetActive(true);
+    }
+
 
     #endregion
 
