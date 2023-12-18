@@ -126,10 +126,10 @@ TextureImporter:
       name: buildingsandmore_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 7
         y: 0
-        width: 100
-        height: 100
+        width: 88
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: buildingsandmore_1
       rect:
         serializedVersion: 2
-        x: 100
+        x: 107
         y: 0
-        width: 100
-        height: 100
+        width: 88
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: buildingsandmore_2
       rect:
         serializedVersion: 2
-        x: 200
+        x: 207
         y: 0
-        width: 100
-        height: 100
+        width: 88
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: buildingsandmore_3
       rect:
         serializedVersion: 2
-        x: 300
+        x: 307
         y: 0
-        width: 100
-        height: 100
+        width: 88
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: buildingsandmore_4
       rect:
         serializedVersion: 2
-        x: 400
+        x: 407
         y: 0
-        width: 100
-        height: 100
+        width: 88
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: buildingsandmore_5
       rect:
         serializedVersion: 2
-        x: 500
-        y: 0
-        width: 100
-        height: 100
+        x: 538
+        y: 8
+        width: 27
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

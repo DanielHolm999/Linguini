@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +108,490 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Aquatoad4_5
+      rect:
+        serializedVersion: 2
+        x: 3659
+        y: 431
+        width: 91
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f36800f00d2f6a14199491a5bc6b2bc2
+      internalID: 1924446165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_6
+      rect:
+        serializedVersion: 2
+        x: 3967
+        y: 423
+        width: 82
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e6dc3d2fbc25343bc6c9884afdd175
+      internalID: 911746321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_7
+      rect:
+        serializedVersion: 2
+        x: 4171
+        y: 431
+        width: 92
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2990da21dd3d9c94ea6b319cb52145d7
+      internalID: 1616696314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_8
+      rect:
+        serializedVersion: 2
+        x: 4322
+        y: 461
+        width: 93
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b844051b56362d84698d0e083dfbbfb5
+      internalID: -1854346697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_9
+      rect:
+        serializedVersion: 2
+        x: 4478
+        y: 423
+        width: 83
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1be1f00189a5af4b96bb63c2575fd98
+      internalID: 1193361259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_10
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 29
+        width: 324
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01fd17268c52b849a42f4a8fb751ef1
+      internalID: 126414995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_11
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 29
+        width: 293
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ddd77ea93eb22428630b4300565d26
+      internalID: 1423763947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_12
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 29
+        width: 326
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b25c4a33c1af470498ceb99e0fb4ad3d
+      internalID: -1488222346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_14
+      rect:
+        serializedVersion: 2
+        x: 1559
+        y: 29
+        width: 464
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4a40502012fc045a67dbd7425181a7
+      internalID: 2071181403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_17
+      rect:
+        serializedVersion: 2
+        x: 2067
+        y: 21
+        width: 480
+        height: 477
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ee773b1063ae64a9bad420f4fb6a88
+      internalID: 1319537529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_20
+      rect:
+        serializedVersion: 2
+        x: 2588
+        y: 29
+        width: 465
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea445c7d124ee54da71c78fe24f5ba9
+      internalID: 1215015984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_23
+      rect:
+        serializedVersion: 2
+        x: 3483
+        y: 337
+        width: 74
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d0013493dc15d941912c4398517a633
+      internalID: 2036123033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_24
+      rect:
+        serializedVersion: 2
+        x: 3612
+        y: 343
+        width: 102
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed8003aa72f346468090dbacd166f44
+      internalID: -415657097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_25
+      rect:
+        serializedVersion: 2
+        x: 3994
+        y: 337
+        width: 75
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0727e1d42a5faf242a76621f8fd26dc8
+      internalID: 521942096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_26
+      rect:
+        serializedVersion: 2
+        x: 4124
+        y: 343
+        width: 101
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d040f027a89bf26488447890bba4ceb0
+      internalID: 623089976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_27
+      rect:
+        serializedVersion: 2
+        x: 4506
+        y: 337
+        width: 76
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9053a2b16b9f90246941ecb0725ac049
+      internalID: -202479590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_28
+      rect:
+        serializedVersion: 2
+        x: 4687
+        y: 153
+        width: 410
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af294579fa74bef4882b9a986628635c
+      internalID: -1003194021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_29
+      rect:
+        serializedVersion: 2
+        x: 5257
+        y: 48
+        width: 192
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ed25e1ed951afe44be6404c7aa25d4d
+      internalID: 717492330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_30
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 26
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5e55e9197303e428481fc9c8b6e6dd
+      internalID: -1086881884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_31
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 26
+        width: 16
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 384c69d1f8e27584f9e03e659fae9589
+      internalID: -659936174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_32
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 27
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0d875fb483c53e41abdebe81e4479bd
+      internalID: 28945730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_33
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 23
+        width: 16
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bcaf7bd70593ce45b54c20ea8a98413
+      internalID: 1278774481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aquatoad4_34
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 27
+        width: 14
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7586ed5a0321afd4380fac75bcaa3722
+      internalID: -227720025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +602,63 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Aquatoad4_0: -2092860643
+      Aquatoad4_1: 1366097801
+      Aquatoad4_10: 126414995
+      Aquatoad4_11: 1423763947
+      Aquatoad4_12: -1488222346
+      Aquatoad4_13: 1629694976
+      Aquatoad4_14: 2071181403
+      Aquatoad4_15: -931631271
+      Aquatoad4_16: -22409874
+      Aquatoad4_17: 1319537529
+      Aquatoad4_18: 30436279
+      Aquatoad4_19: -1230384199
+      Aquatoad4_2: -1339427738
+      Aquatoad4_20: 1215015984
+      Aquatoad4_21: 1297942435
+      Aquatoad4_22: -252873835
+      Aquatoad4_23: 2036123033
+      Aquatoad4_24: -415657097
+      Aquatoad4_25: 521942096
+      Aquatoad4_26: 623089976
+      Aquatoad4_27: -202479590
+      Aquatoad4_28: -1003194021
+      Aquatoad4_29: 717492330
+      Aquatoad4_3: -1766736325
+      Aquatoad4_30: -1086881884
+      Aquatoad4_31: -659936174
+      Aquatoad4_32: 28945730
+      Aquatoad4_33: 1278774481
+      Aquatoad4_34: -227720025
+      Aquatoad4_35: -1651453107
+      Aquatoad4_36: -674491127
+      Aquatoad4_37: 1662137219
+      Aquatoad4_38: 1506283359
+      Aquatoad4_39: -764155241
+      Aquatoad4_4: 263283391
+      Aquatoad4_40: 1354052557
+      Aquatoad4_41: -1283555598
+      Aquatoad4_42: -505421712
+      Aquatoad4_43: 1689461647
+      Aquatoad4_44: 1665217661
+      Aquatoad4_45: -1134553525
+      Aquatoad4_46: -726341260
+      Aquatoad4_47: 1399575434
+      Aquatoad4_48: -1999848002
+      Aquatoad4_49: 1896549559
+      Aquatoad4_5: 1924446165
+      Aquatoad4_50: 128757139
+      Aquatoad4_51: 1483428728
+      Aquatoad4_52: -1786916321
+      Aquatoad4_53: -963435617
+      Aquatoad4_54: 757621428
+      Aquatoad4_55: 186469467
+      Aquatoad4_6: 911746321
+      Aquatoad4_7: 1616696314
+      Aquatoad4_8: -1854346697
+      Aquatoad4_9: 1193361259
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

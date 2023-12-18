@@ -6,5 +6,6 @@ using UnityEngine;
 public class DialogueLines
 {
     public string name;
-    public string sentence; 
+    public string sentence;
+    
 }
