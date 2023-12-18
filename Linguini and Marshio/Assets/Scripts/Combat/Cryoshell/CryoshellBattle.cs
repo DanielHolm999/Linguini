@@ -311,7 +311,7 @@ public class CryoshellBattle : MonoBehaviour
         projectileScript.shooter = Projectile.Shooter.Player;
 
         // Randomize projectile speed
-        float projectileSpeed = Random.Range(8f, 13f);
+        float projectileSpeed = Random.Range(15f, 23f);
         Debug.Log("Projectile speed is " + projectileSpeed);
         projectileScript.SetSpeed(projectileSpeed);
 
@@ -353,10 +353,14 @@ public class CryoshellBattle : MonoBehaviour
         Vector3 spawnPosition = enemyUnit.transform.position;
         if (verticalOffsetType == 1) //high
         {
-            float verticalOffset = 1.0f; //modify
+            Debug.Log("High ball");
+            float verticalOffset = 1.5f; //modify
             spawnPosition += new Vector3(0, verticalOffset, 0);
         }
-
+        else
+        {
+            spawnPosition += new Vector3(0, -0.5f, 0);
+        }
         // Update text
         dialogueBoxText.text = enemyUnit.unitName + " prepares a ranged attack!";
         Debug.Log("Preparing ranged attack");
@@ -372,7 +376,7 @@ public class CryoshellBattle : MonoBehaviour
 
         if (projectileScript != null)
         {
-            float projectileSpeed = Random.Range(8f, 13f);
+            float projectileSpeed = Random.Range(13f, 18f);
             Debug.Log("Projectilespeed is " + projectileSpeed);
             projectileScript.SetSpeed(projectileSpeed);
             Vector3 directionToPlayer = playerUnit.transform.position - enemyUnit.transform.position;

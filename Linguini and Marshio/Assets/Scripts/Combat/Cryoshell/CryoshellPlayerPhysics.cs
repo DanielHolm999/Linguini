@@ -7,6 +7,7 @@ public class CryoshellPlayerPhysics : MonoBehaviour
     public float jumpForce = 5f;  // Adjust the force for jumping
     private Rigidbody2D rb;
     private CryoshellBattle battlesystem;
+    private bool isGrounded;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,12 +29,17 @@ public class CryoshellPlayerPhysics : MonoBehaviour
     // Call this method to make the player jump
     public void Jump()
     {
+        if (isGrounded)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+        /*
         // Simple jump logic
         if (rb != null && Mathf.Approximately(rb.velocity.y, 0f))  // Check if player is on the ground
         {
-            rb.velocity = Vector2.up * jumpForce;
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
-        else
+        else 
         {
             Debug.Log("something went wrong??");
             if (rb == null)
@@ -45,5 +51,17 @@ public class CryoshellPlayerPhysics : MonoBehaviour
                 Debug.Log("player isnt on ground, velocity is " + rb.velocity.y.ToString());
             }
         }
+        */
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        isGrounded = true;
+        Debug.Log("COLLISION ENTER!!!!!!!");
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        isGrounded = false;
+        Debug.Log("COLLISION EXIT!!!!");
     }
 }
