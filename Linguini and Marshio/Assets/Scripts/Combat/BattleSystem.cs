@@ -253,6 +253,9 @@ public class BattleSystem : MonoBehaviour
 
     private IEnumerator SpecialAttackRoutine()
     {
+        //goto attacking phase
+        state = RealBattleState.ATTACKINGPHASE;
+
         // Hide the normal sprite and show the first animation sprite
         playerUnit.gameObject.SetActive(false);
         animationSprite1.SetActive(true);
@@ -409,6 +412,7 @@ public class BattleSystem : MonoBehaviour
             yield return StartCoroutine(EnemyProjectileAttack());
         }
 
+
         CheckPlayerState();
     }
  
@@ -424,6 +428,7 @@ public class BattleSystem : MonoBehaviour
 
     void CheckPlayerState()
     {
+        
         bool isDead = playerUnit.currentHp <= 0;
         if (isDead)
         {

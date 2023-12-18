@@ -66,6 +66,7 @@ public class Projectile : MonoBehaviour
             CrouchedStateScript crouchedScript = collider.gameObject.GetComponent<CrouchedStateScript>();
             if (crouchedScript != null)
             {
+                Debug.Log("in crouched");
                 crouchedScript.TakeDamage(damage);
             }
             else
@@ -74,6 +75,7 @@ public class Projectile : MonoBehaviour
                 Unit unit = collider.gameObject.GetComponent<Unit>();
                 if (unit != null)
                 {
+                    Debug.Log("in not crouched");
                     unit.TakeDamage(damage);
                 }
                 else
