@@ -126,6 +126,8 @@ public class BattleSystem : MonoBehaviour
             BGMAudioSource.Stop();
             audioSource.PlayOneShot(winningSFX);
             //Remember sounds
+            StatsController.SkillPoints += 1;
+            StatsController.Level += 1;
             dialogueBoxText.text = "Tonight we are victorious";
             yield return new WaitForSeconds(2.5f);
             SceneManager.LoadScene(sceneToLoadOnWin);

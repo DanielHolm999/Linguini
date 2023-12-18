@@ -109,6 +109,7 @@ public class CryoshellBattle : MonoBehaviour
         if (state == BattleState.WON)
         {
             StatsController.SkillPoints += 1;
+            StatsController.Level += 1;
             BGMAudioSource.Stop();
             audioSource.PlayOneShot(winningSFX);
             dialogueBoxText.text = "Yahoo!, Lugini defeated the " + enemyUnit.unitName;
