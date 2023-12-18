@@ -239,6 +239,12 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f); // Wait a moment before switching back
         animationSprite2.SetActive(false);
         playerUnit.gameObject.SetActive(true);
+
+        //check if dead and end turn
+        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
+        state = RealBattleState.ENEMYTURN;
+
+        UpdateHUDAndCheckBattleState(isDead);
     }
 #endregion
 

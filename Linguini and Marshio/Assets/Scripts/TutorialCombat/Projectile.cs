@@ -55,6 +55,7 @@ public class Projectile : MonoBehaviour
         //if enemy is hit
         if (shooter == Shooter.Player && collider.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("is enemy");
             OnHit?.Invoke();
             Unit unit = collider.gameObject.GetComponent<Unit>();
             unit.TakeDamage(damage);

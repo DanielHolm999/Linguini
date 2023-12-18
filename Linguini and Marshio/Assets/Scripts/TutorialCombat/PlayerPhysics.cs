@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class PlayerPhysics : MonoBehaviour
 {
     public float jumpForce = 5f;  // Adjust the force for jumping
     private Rigidbody2D rb;
     private BattleSystem battlesystem;
+    private bool isGrounded;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,7 +33,7 @@ public class PlayerPhysics : MonoBehaviour
         // Simple jump logic
         if (rb != null && Mathf.Approximately(rb.velocity.y, 0f))  // Check if player is on the ground
         {
-            rb.velocity = Vector2.up * jumpForce;
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
         else 
         {
@@ -45,5 +47,14 @@ public class PlayerPhysics : MonoBehaviour
                 Debug.Log("player isnt on ground, velocity is " + rb.velocity.y.ToString());
             }
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("COLLISION ENTER!!!!!!!");
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        Debug.Log("COLLISION EXIT!!!!");
     }
 }
