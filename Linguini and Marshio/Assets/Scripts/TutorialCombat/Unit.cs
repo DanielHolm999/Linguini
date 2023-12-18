@@ -26,10 +26,10 @@ public class Unit : MonoBehaviour
             || gameObject.name == "WotahPlayerSprite"
             || gameObject.name == "PlayerSprite")
         {
-            unitLevel = StatsController.Level;
-            damage = StatsController.AttackDamage;
-            maxHp = StatsController.MaxHealth;
-            currentHp = StatsController.Health;
+            //unitLevel = StatsController.Level;
+            //damage = StatsController.AttackDamage;
+            //maxHp = StatsController.MaxHealth;
+            //currentHp = StatsController.Health;
         }
         audioSource = GetComponent<AudioSource>();
         Debug.Log("lugini hp is: " + currentHp);

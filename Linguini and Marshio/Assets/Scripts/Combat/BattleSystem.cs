@@ -411,6 +411,8 @@ public class BattleSystem : MonoBehaviour
         {
             yield return StartCoroutine(EnemyProjectileAttack());
         }
+        playerHUD.SetHP(playerUnit.currentHp);
+
 
 
         CheckPlayerState();
