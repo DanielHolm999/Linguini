@@ -292,9 +292,7 @@ public class BattleSystem : MonoBehaviour
         playerUnit.gameObject.SetActive(true);
 
         //check if dead and end turn
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
-        state = RealBattleState.ENEMYTURN;
-
+        bool isDead = enemyUnit.currentHp <= 0 ? true : false;
         UpdateHUDAndCheckBattleState(isDead);
     }
 #endregion

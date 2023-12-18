@@ -277,7 +277,7 @@ MonoBehaviour:
   unitLevel: 1
   damage: 2
   maxHp: 80
-  currentHp: 5
+  currentHp: 40
   takeDamageSFX: {fileID: 8300000, guid: 1a223644919224499aeda478cf6bd7ea, type: 3}
   dyingSFX: {fileID: 8300000, guid: 03ff32df5802449f3881a75adff12f9d, type: 3}
 --- !u!50 &-267464092268467184

@@ -77,7 +77,7 @@ public class AquaToad : EnemyCombatBehaviour
         yield return new WaitForSeconds(1f); // Time before shooting
 
         // Instantiate and set up projectile
-        float projectileHeight = (Random.Range(0, 2)*1.1f)-0.7f;
+        float projectileHeight = (Random.Range(0, 2)*2f)-1.2f;
         var projectilePosition = system.enemyUnit.transform.position;
         Vector2 projectileStartVector = new(system.enemyUnit.transform.position.x, projectileHeight);
 
@@ -93,7 +93,7 @@ public class AquaToad : EnemyCombatBehaviour
 
         if (projectileScript != null)
         {
-            float projectileSpeed = UnityEngine.Random.Range(5f, 10f); //Give a bigger speed range
+            float projectileSpeed = UnityEngine.Random.Range(7f, 13f); //Give a bigger speed range
 
             Debug.Log("Projectilespeed is " + projectileSpeed);
 
@@ -146,7 +146,7 @@ public class AquaToad : EnemyCombatBehaviour
             yield return new WaitForSeconds(1f);
         }
         // wait untill done
-
+        yield return new WaitForSeconds(2f);
     }
 
     private IEnumerator TsunamiAttack(BattleSystem system) // only usable when full stacks
@@ -244,7 +244,7 @@ public class AquaToad : EnemyCombatBehaviour
     private void ShootBubble(BubbleType bubble, BattleSystem system)
     {
         //height is either high or low
-        float projectileHeight = (Random.Range(0, 2)*0.8f)-0.4f;
+        float projectileHeight = (Random.Range(0, 2)*2.2f)-1.6f;
         //Debug.Log("PROJECTILE HEIGHT: " + projectileHeight.ToString());
 
         var projectilePosition = system.enemyUnit.transform.position;
@@ -273,7 +273,7 @@ public class AquaToad : EnemyCombatBehaviour
 
         if (projectileScript != null)
         {
-            float projectileSpeed = 6;
+            float projectileSpeed = 8;
 
             Debug.Log("Projectilespeed is " + projectileSpeed);
 
