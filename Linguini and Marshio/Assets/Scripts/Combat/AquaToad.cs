@@ -93,7 +93,7 @@ public class AquaToad : EnemyCombatBehaviour
 
         if (projectileScript != null)
         {
-            float projectileSpeed = UnityEngine.Random.Range(7f, 13f); //Give a bigger speed range
+            float projectileSpeed = UnityEngine.Random.Range(10f, 14f); //Give a bigger speed range
 
             Debug.Log("Projectilespeed is " + projectileSpeed);
 
@@ -121,11 +121,7 @@ public class AquaToad : EnemyCombatBehaviour
             Debug.LogError("Projectile script not found on the instantiated object");
         }
 
-
-
         // Update HUD after attack
-        system.playerHUD.SetHP(system.playerUnit.currentHp);
-        Debug.Log("HUD updated after attack");
         yield return new WaitForSeconds(2f); // Post-attack pause
     }
 
@@ -314,7 +310,7 @@ public class AquaToad : EnemyCombatBehaviour
     {
         if (bubble == BubbleType.Good)
         {
-            if(stacks >= 0)
+            if(stacks > 0)
                 --stacks;
         }
         else

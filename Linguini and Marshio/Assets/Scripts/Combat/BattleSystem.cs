@@ -122,10 +122,12 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == RealBattleState.WON)
         {
+            Debug.Log("in endbattle");
             BGMAudioSource.Stop();
             audioSource.PlayOneShot(winningSFX);
             //Remember sounds
             dialogueBoxText.text = "Tonight we are victorious";
+            yield return new WaitForSeconds(2.5f);
             SceneManager.LoadScene(sceneToLoadOnWin);
 
         }
@@ -231,6 +233,7 @@ public class BattleSystem : MonoBehaviour
 
         if (isDead)
         {
+            Debug.Log("in is dead");
             state = RealBattleState.WON;
             //sounds
             StartCoroutine(HandleEnemyDeath());
@@ -300,9 +303,11 @@ public class BattleSystem : MonoBehaviour
     #region EnemyStuff
     IEnumerator HandleEnemyDeath()
     {
+        Debug.Log("In handle death");
         Vector3 originalPos = enemyUnit.transform.position;
         Vector3 targetPos = originalPos + new Vector3(0, -180, 0);
-        yield return StartCoroutine(EnemyDeathAnimation(enemyUnit.transform, targetPos, 10f));
+        StartCoroutine(EnemyDeathAnimation(enemyUnit.transform, targetPos, 10f));
+        yield return new WaitForSeconds(1f);
         StartCoroutine(EndBattle());
     }
 
