@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+   
     public string unitName;
-    public int unitLevel;
+    public int unitLevel = StatsController.Level;
 
-    public int damage;
+    public int damage = StatsController.AttackDamage;
 
-    public int maxHp;
-    public int currentHp;
+    public int maxHp = StatsController.MaxHealth;
+    public int currentHp = StatsController.Health;
 
 
     public AudioClip takeDamageSFX;

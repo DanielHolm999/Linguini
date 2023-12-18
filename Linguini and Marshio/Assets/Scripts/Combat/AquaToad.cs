@@ -19,6 +19,12 @@ public class AquaToad : EnemyCombatBehaviour
 
     public GameObject BubblePrefabGood;
     public GameObject BubblePrefabBad;
+    private AudioSource audioSource;
+    public AudioClip bubbleSoundGood;
+    public AudioClip bubbleSoundBad;
+
+    public AudioClip waterSound;
+    public AudioClip tsunamiSound; 
     private SpriteRenderer FirstStack;
     private SpriteRenderer SecondStack;
 
@@ -29,6 +35,8 @@ public class AquaToad : EnemyCombatBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         // get stack sprites and hide them - they are children components of the aquatoad object
         var stackSprites = GetComponentsInChildren<SpriteRenderer>();
         FirstStack = stackSprites[1];
@@ -37,7 +45,6 @@ public class AquaToad : EnemyCombatBehaviour
         FirstStack.enabled = false;
         SecondStack.enabled = false;
         ThirdStack.enabled = false;
-        stacks = 3;
     }
 
     public override IEnumerator EnemyMove(BattleSystem system)
@@ -67,14 +74,17 @@ public class AquaToad : EnemyCombatBehaviour
         Debug.Log("USING WATER ATTACK");
         system.dialogueBoxText.text = system.enemyUnit.unitName + " prepares a ranged attack!";
 
-        yield return new WaitForSeconds(2f); // Time before shooting
+        yield return new WaitForSeconds(1f); // Time before shooting
 
         // Instantiate and set up projectile
-        float projectileHeight = (Random.Range(0, 2)*1.1f)-0.7f;
+        float projectileHeight = (Random.Range(0, 2)*2f)-1.2f;
         var projectilePosition = system.enemyUnit.transform.position;
         Vector2 projectileStartVector = new(system.enemyUnit.transform.position.x, projectileHeight);
 
+        audioSource.PlayOneShot(waterSound);
+        yield return new WaitForSeconds(0.8f);
         GameObject projectileObject = Instantiate(WaterPrefab, projectileStartVector, Quaternion.identity);
+
 
         Debug.Log("Projectile instantiated at position: " + system.enemyUnit.transform.position);
 
@@ -83,7 +93,7 @@ public class AquaToad : EnemyCombatBehaviour
 
         if (projectileScript != null)
         {
-            float projectileSpeed = UnityEngine.Random.Range(5f, 10f); //Give a bigger speed range
+            float projectileSpeed = UnityEngine.Random.Range(10f, 14f); //Give a bigger speed range
 
             Debug.Log("Projectilespeed is " + projectileSpeed);
 
@@ -111,11 +121,7 @@ public class AquaToad : EnemyCombatBehaviour
             Debug.LogError("Projectile script not found on the instantiated object");
         }
 
-
-
         // Update HUD after attack
-        system.playerHUD.SetHP(system.playerUnit.currentHp);
-        Debug.Log("HUD updated after attack");
         yield return new WaitForSeconds(2f); // Post-attack pause
     }
 
@@ -136,7 +142,7 @@ public class AquaToad : EnemyCombatBehaviour
             yield return new WaitForSeconds(1f);
         }
         // wait untill done
-
+        yield return new WaitForSeconds(2f);
     }
 
     private IEnumerator TsunamiAttack(BattleSystem system) // only usable when full stacks
@@ -152,6 +158,8 @@ public class AquaToad : EnemyCombatBehaviour
 
         // Instantiate and set up projectile
         GameObject projectileObject = Instantiate(TsunamiPrefab, projectileStartVector, Quaternion.identity);
+        audioSource.PlayOneShot(tsunamiSound);
+
 
         Debug.Log("Projectile instantiated at position: " + system.enemyUnit.transform.position);
 
@@ -232,7 +240,7 @@ public class AquaToad : EnemyCombatBehaviour
     private void ShootBubble(BubbleType bubble, BattleSystem system)
     {
         //height is either high or low
-        float projectileHeight = (Random.Range(0, 2)*1.4f)-1f;
+        float projectileHeight = (Random.Range(0, 2)*2.2f)-1.6f;
         //Debug.Log("PROJECTILE HEIGHT: " + projectileHeight.ToString());
 
         var projectilePosition = system.enemyUnit.transform.position;
@@ -243,11 +251,16 @@ public class AquaToad : EnemyCombatBehaviour
         if(bubble == BubbleType.Good)
         {
             projectileObject = Instantiate(BubblePrefabGood, projectileStartPosition, Quaternion.identity);
+            audioSource.PlayOneShot(bubbleSoundGood);
+
         }
         else 
         {
             projectileObject = Instantiate(BubblePrefabBad, projectileStartPosition, Quaternion.identity);
+            audioSource.PlayOneShot(bubbleSoundBad);
+
         }
+
 
         Debug.Log("Projectile instantiated at position: " + system.enemyUnit.transform.position);
 
@@ -256,7 +269,7 @@ public class AquaToad : EnemyCombatBehaviour
 
         if (projectileScript != null)
         {
-            float projectileSpeed = 6;
+            float projectileSpeed = 8;
 
             Debug.Log("Projectilespeed is " + projectileSpeed);
 
@@ -297,7 +310,7 @@ public class AquaToad : EnemyCombatBehaviour
     {
         if (bubble == BubbleType.Good)
         {
-            if(stacks >= 0)
+            if(stacks > 0)
                 --stacks;
         }
         else

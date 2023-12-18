@@ -30,6 +30,11 @@ public class PlayerPhysics : MonoBehaviour
     // Call this method to make the player jump
     public void Jump()
     {
+        if (isGrounded)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+        /*
         // Simple jump logic
         if (rb != null && Mathf.Approximately(rb.velocity.y, 0f))  // Check if player is on the ground
         {
@@ -47,14 +52,17 @@ public class PlayerPhysics : MonoBehaviour
                 Debug.Log("player isnt on ground, velocity is " + rb.velocity.y.ToString());
             }
         }
+        */
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        isGrounded = true;
         Debug.Log("COLLISION ENTER!!!!!!!");
     }
     void OnCollisionExit2D(Collision2D collision)
     {
+        isGrounded = false;
         Debug.Log("COLLISION EXIT!!!!");
     }
 }

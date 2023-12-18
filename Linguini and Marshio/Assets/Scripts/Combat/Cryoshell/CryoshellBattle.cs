@@ -108,9 +108,10 @@ public class CryoshellBattle : MonoBehaviour
     {
         if (state == BattleState.WON)
         {
+            StatsController.SkillPoints += 1;
             BGMAudioSource.Stop();
             audioSource.PlayOneShot(winningSFX);
-            dialogueBoxText.text = "Yahoo!, Lugini defeated the " + enemyUnit.name;
+            dialogueBoxText.text = "Yahoo!, Lugini defeated the " + enemyUnit.unitName;
             yield return new WaitForSeconds(4f);
             dialogueBoxText.text = "Lugini feels his strength growing";
             yield return new WaitForSeconds(4f);
@@ -127,13 +128,13 @@ public class CryoshellBattle : MonoBehaviour
             audioSource.PlayOneShot(losingSFX);
             PlayerDeathAnimation();
             yield return new WaitForSeconds(2f);
-            dialogueBoxText.text = enemyUnit.name + " was too formiddable for Lugini...";
+            dialogueBoxText.text = enemyUnit.unitName + " was too formiddable for Lugini...";
             yield return new WaitForSeconds(4f);
-            dialogueBoxText.text = enemyUnit.name + "'s shield glowing with each block";
+            dialogueBoxText.text = enemyUnit.unitName + "'s shield glowing with each block";
             yield return new WaitForSeconds(4f);
             dialogueBoxText.text = "seemed to make him stronger...";
             yield return new WaitForSeconds(4f);
-            dialogueBoxText.text = enemyUnit.name + " also melee attacked more often..";
+            dialogueBoxText.text = enemyUnit.unitName + " also melee attacked more often..";
             yield return new WaitForSeconds(4f);
             dialogueBoxText.text = "in proportion to how many projectiles he blocked..";
             yield return new WaitForSeconds(4f);
@@ -310,7 +311,7 @@ public class CryoshellBattle : MonoBehaviour
         projectileScript.shooter = Projectile.Shooter.Player;
 
         // Randomize projectile speed
-        float projectileSpeed = Random.Range(8f, 13f);
+        float projectileSpeed = Random.Range(15f, 23f);
         Debug.Log("Projectile speed is " + projectileSpeed);
         projectileScript.SetSpeed(projectileSpeed);
 
@@ -352,10 +353,14 @@ public class CryoshellBattle : MonoBehaviour
         Vector3 spawnPosition = enemyUnit.transform.position;
         if (verticalOffsetType == 1) //high
         {
-            float verticalOffset = 1.0f; //modify
+            Debug.Log("High ball");
+            float verticalOffset = 1.5f; //modify
             spawnPosition += new Vector3(0, verticalOffset, 0);
         }
-
+        else
+        {
+            spawnPosition += new Vector3(0, -0.5f, 0);
+        }
         // Update text
         dialogueBoxText.text = enemyUnit.unitName + " prepares a ranged attack!";
         Debug.Log("Preparing ranged attack");
@@ -371,7 +376,7 @@ public class CryoshellBattle : MonoBehaviour
 
         if (projectileScript != null)
         {
-            float projectileSpeed = Random.Range(8f, 13f);
+            float projectileSpeed = Random.Range(13f, 32f);
             Debug.Log("Projectilespeed is " + projectileSpeed);
             projectileScript.SetSpeed(projectileSpeed);
             Vector3 directionToPlayer = playerUnit.transform.position - enemyUnit.transform.position;
@@ -428,6 +433,7 @@ public class CryoshellBattle : MonoBehaviour
         if (projectileDamage > enemyDamage)
         {
             yield return StartCoroutine(EnemyProjectileAttack(Random.Range(0,2)));
+
         }
         else if(projectileDamage < enemyDamage)
         {

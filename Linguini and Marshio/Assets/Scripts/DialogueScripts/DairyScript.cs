@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpriteManager : MonoBehaviour
 {
@@ -82,6 +83,8 @@ public class SpriteManager : MonoBehaviour
         }
 
         spriteToShow.transform.position = targetPosition.position;
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("MainWorld");
     }
 
 }

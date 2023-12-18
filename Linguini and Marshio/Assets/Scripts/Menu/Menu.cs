@@ -4,13 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
+    public string tutorialScreen = "TutorialBattle";
+    public string storyStartupScreen = "StoryStartup";
 
-    public void OnPlayButton ()
+    public void OnStartButton ()
     {
         StatsController.InitialSetup();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(storyStartupScreen);
     }
-
+    public void OnTutorialButton()
+    {
+        StatsController.InitialSetup();
+        SceneManager.LoadScene(tutorialScreen);
+    }
     public void OnQuitButton()
     {
         Application.Quit();

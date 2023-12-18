@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -6798470787061001868}
   - component: {fileID: -267464092268467184}
   m_Layer: 5
-  m_Name: CRYOPlayerSprite
+  m_Name: WotahPlayerSprite
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9073351982145846717}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0765ff8a1aca34ef6b10e0936cd37441, type: 3}
   m_Name: 
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9073351982145846717}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4091b851508e045aebbd8aed50d373fb, type: 3}
   m_Name: 
@@ -275,9 +275,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Lugini
   unitLevel: 1
-  damage: 5
-  maxHp: 100
-  currentHp: 100
+  damage: 2
+  maxHp: 80
+  currentHp: 40
   takeDamageSFX: {fileID: 8300000, guid: 1a223644919224499aeda478cf6bd7ea, type: 3}
   dyingSFX: {fileID: 8300000, guid: 03ff32df5802449f3881a75adff12f9d, type: 3}
 --- !u!50 &-267464092268467184
