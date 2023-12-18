@@ -108,9 +108,10 @@ public class CryoshellBattle : MonoBehaviour
     {
         if (state == BattleState.WON)
         {
+            StatsController.SkillPoints += 1;
             BGMAudioSource.Stop();
             audioSource.PlayOneShot(winningSFX);
-            dialogueBoxText.text = "Yahoo!, Lugini defeated the " + enemyUnit.name;
+            dialogueBoxText.text = "Yahoo!, Lugini defeated the " + enemyUnit.unitName;
             yield return new WaitForSeconds(4f);
             dialogueBoxText.text = "Lugini feels his strength growing";
             yield return new WaitForSeconds(4f);
@@ -127,13 +128,13 @@ public class CryoshellBattle : MonoBehaviour
             audioSource.PlayOneShot(losingSFX);
             PlayerDeathAnimation();
             yield return new WaitForSeconds(2f);
-            dialogueBoxText.text = enemyUnit.name + " was too formiddable for Lugini...";
+            dialogueBoxText.text = enemyUnit.unitName + " was too formiddable for Lugini...";
             yield return new WaitForSeconds(4f);
-            dialogueBoxText.text = enemyUnit.name + "'s shield glowing with each block";
+            dialogueBoxText.text = enemyUnit.unitName + "'s shield glowing with each block";
             yield return new WaitForSeconds(4f);
             dialogueBoxText.text = "seemed to make him stronger...";
             yield return new WaitForSeconds(4f);
-            dialogueBoxText.text = enemyUnit.name + " also melee attacked more often..";
+            dialogueBoxText.text = enemyUnit.unitName + " also melee attacked more often..";
             yield return new WaitForSeconds(4f);
             dialogueBoxText.text = "in proportion to how many projectiles he blocked..";
             yield return new WaitForSeconds(4f);

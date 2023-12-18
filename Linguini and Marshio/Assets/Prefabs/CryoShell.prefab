@@ -198,6 +198,6 @@ MonoBehaviour:
   unitLevel: 2
   damage: 3
   maxHp: 100
-  currentHp: 100
+  currentHp: 1
   takeDamageSFX: {fileID: 0}
   dyingSFX: {fileID: 0}

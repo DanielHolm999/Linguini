@@ -36,9 +36,26 @@ public class Skill : MonoBehaviour
         {
             return;
         }
-
+        
         skillTree.SkillPoint -= 1;
         skillTree.SkillLevels[id]++;
+        var purchasedSkills = skillTree.SkillNames[id];
+        CheckPurchasedSkill(purchasedSkills);
+
         skillTree.UpdateAllSkillUI();
     }
+
+    public void CheckPurchasedSkill(string skillName)
+    {
+        if (skillName == "More HP")
+        {
+            StatsController.MaxHealth += 10;
+            StatsController.Health += 10;
+        }
+        if (skillName == "More attack")
+        {
+            StatsController.AttackDamage += 5;
+        }
+    }
+
 }

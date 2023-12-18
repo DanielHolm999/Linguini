@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DialogueScene.unity
     guid: 61c67e0dbf98f474c9a34f800430dc7c
+  - enabled: 1
+    path: Assets/Scenes/AquatToadBossBattle.unity
+    guid: d0d1aecdc21304501a2406e340a1c1d7
+  - enabled: 1
+    path: Assets/Scenes/WaterHomieBossBattle.unity
+    guid: 8fde1ef65ced949c3980af9e381a9268
   m_configObjects: {}
