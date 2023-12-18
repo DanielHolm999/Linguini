@@ -236,11 +236,16 @@ public class TutorialBattleSystem : MonoBehaviour
 
     public void PerformSpecialAttack()
     {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
         StartCoroutine(SpecialAttackRoutine());
     }
 
     private IEnumerator SpecialAttackRoutine()
     {
+        state = BattleState.ATTACKINGPHASE;
         // Hide the normal sprite and show the first animation sprite
         playerUnit.gameObject.SetActive(false);
         animationSprite1.SetActive(true);
