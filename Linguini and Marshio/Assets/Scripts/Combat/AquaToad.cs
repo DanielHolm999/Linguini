@@ -115,6 +115,8 @@ public class AquaToad : EnemyCombatBehaviour
             // Wait for either the projectile to hit or its lifetime to end
             yield return new WaitUntil(() => attackCompletion.Task.IsCompleted);
             Debug.Log("Attack completion detected");
+            system.playerHUD.SetHP(system.playerUnit.currentHp);
+
         }
         else
         {
@@ -140,6 +142,8 @@ public class AquaToad : EnemyCombatBehaviour
             Debug.Log("Shooting bubble");
             ShootBubble(bubble, system);
             yield return new WaitForSeconds(1f);
+            system.playerHUD.SetHP(system.playerUnit.currentHp);
+
         }
         // wait untill done
         yield return new WaitForSeconds(2f);
